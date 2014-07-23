@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+ 
+  resources :private_messages
+  resources :blocks
+  resources :favorites
   resources :user_sessions
   resources :users
 
