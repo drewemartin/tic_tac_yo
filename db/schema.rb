@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722191803) do
+ActiveRecord::Schema.define(version: 20140723013730) do
 
   create_table "favorites", force: true do |t|
     t.integer  "favoriter_id"
     t.integer  "favorited_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "private_messages", force: true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
