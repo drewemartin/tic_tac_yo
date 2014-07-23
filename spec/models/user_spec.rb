@@ -54,6 +54,24 @@ describe User do
 		it "it should have many 'favorited_you'" do
         expect(FactoryGirl.create(:user)).to respond_to(:favorited_you)
     end
+
+    it "it should have many 'blocks'" do
+      user = FactoryGirl.create(:user)
+      expect(user).to respond_to(:blocks)
+    end
+    it "it should have many 'blocked_users'" do
+      user = FactoryGirl.create(:user)
+      expect(user).to respond_to(:blocked_users)
+    end
+    it "it should have many 'blocked_by'" do
+      user = FactoryGirl.create(:user)
+      expect(user).to respond_to(:blocked_by)
+    end
+    it "it should have many 'blocked_you'" do
+      user = FactoryGirl.create(:user)
+      expect(user).to respond_to(:blocked_you)
+    end
+
 		it "it should have many 'private_messages'" do
         expect(FactoryGirl.create(:user)).to respond_to(:private_messages)
     end
