@@ -12,5 +12,8 @@ class User < ActiveRecord::Base
   geocoded_by :address   
 	after_validation :geocode 
 
-
+	validates :email,:first_name,:last_name,:age,:address, :presence => true
+	validates :email, :uniqueness => true
+	validates :age, numericality:{greater_than_or_equal_to: 18 }
+	validates :password, :length => {:minimum => 4 }
 end

@@ -12,7 +12,7 @@ FactoryGirl.define do
   	gender_preference {['male','female','any'].shuffle.first}
   	address "Toronto, ON, Canada"
   	biography {Faker::Lorem.sentence}
-  	password "1234"
-		password_confirmation "1234"
+  	password "12345"
+		password_confirmation "12345"
   end
 end
