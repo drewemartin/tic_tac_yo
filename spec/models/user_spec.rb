@@ -48,6 +48,9 @@ describe User do
 		it "it should have many 'favorites'" do
       expect(FactoryGirl.create(:user)).to respond_to(:favorites)
     end
+    it "it should have many 'favorited_by'" do
+    	expect(FactoryGirl.create(:user)).to respond_to(:favorited_by)
+    end
 		it "it should have many 'favorite_users'" do
             expect(FactoryGirl.create(:user)).to respond_to(:favorite_users)
     end
