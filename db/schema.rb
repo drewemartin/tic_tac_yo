@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723013730) do
+ActiveRecord::Schema.define(version: 20140723213343) do
+
+  create_table "blocks", force: true do |t|
+    t.integer  "blocker_id"
+    t.integer  "blocked_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "favorites", force: true do |t|
     t.integer  "favoriter_id"
@@ -34,7 +41,6 @@ ActiveRecord::Schema.define(version: 20140723013730) do
     t.string   "salt",                                                    null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "age"
     t.string   "username"
     t.string   "gender"
     t.string   "gender_preference"
@@ -49,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140723013730) do
     t.datetime "reset_password_email_sent_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.datetime "date_of_birth"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
