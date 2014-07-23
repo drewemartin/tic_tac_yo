@@ -6,7 +6,7 @@ FactoryGirl.define do
   	email
   	first_name {Faker::Name.first_name}
   	last_name	{Faker::Name.last_name}
-  	age {18 + Random.rand(30)}
+  	date_of_birth DateTime.new(1990,01,01)
   	username {Faker::Name.name}
   	gender {['male','female','any'].shuffle.first}
   	gender_preference {['male','female','any'].shuffle.first}

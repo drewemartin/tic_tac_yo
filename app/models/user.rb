@@ -18,8 +18,18 @@ class User < ActiveRecord::Base
   geocoded_by :address   
 	after_validation :geocode 
 
-	validates :email,:first_name,:last_name,:age,:address, :presence => true
+	validates :email,:first_name,:last_name,:address, :date_of_birth, :presence => true
 	validates :email, :uniqueness => true
-	validates :age, numericality:{greater_than_or_equal_to: 18 }
 	validates :password, :length => {:minimum => 4 }
+	validate :check_user_greater_or_equal_than_18_years_old
+
+	private
+	def check_user_greater_or_equal_than_18_years_old
+			return if(date_of_birth.nil?)
+			current_year = DateTime.now.year
+			if (current_year - date_of_birth.year) < 18
+				errors.add(:date_of_birth,"the user is less than 18 years old.")
+			end
+	end
+
 end

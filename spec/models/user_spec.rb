@@ -19,11 +19,13 @@ describe User do
   	it "is invalid withouts last_name" do
       expect(FactoryGirl.build(:user,last_name:nil)).to_not be_valid
     end
-  	it "is invalid without age" do
-      expect(FactoryGirl.build(:user,age:nil)).to_not be_valid
+  	it "is invalid without date of birth" do
+      expect(FactoryGirl.build(:user,date_of_birth:nil)).to_not be_valid
     end
   	it "age should be greater than 18 years old" do
-      expect(FactoryGirl.build(:user,age: 17)).to_not be_valid
+  		current_time = DateTime.now
+  		date_of_birth = DateTime.new(current_time.year - 17)
+      expect(FactoryGirl.build(:user,date_of_birth: date_of_birth)).to_not be_valid
     end
   	it "is invalid without an address" do
       expect(FactoryGirl.build(:user,address:nil)).to_not be_valid
