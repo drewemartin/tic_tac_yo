@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :private_messages, foreign_key: 'sender_id', dependent: :destroy
   has_many :users_i_sent_messages, through: :private_messages, source: :recipient
+
   has_many :obtained_messages, class_name: "PrivateMessage", foreign_key: 'recipient_id', dependent: :destroy
   has_many :users_i_recieved_messages_from, through: :obtained_messages, source: :sender
 
@@ -32,7 +33,6 @@ class User < ActiveRecord::Base
 
 	validates :email,:first_name,:last_name,:address, :date_of_birth, :username, :presence => true
 	validates :email, :uniqueness => true
-	validates :password, :length => {:minimum => 4 }
 	validate :check_user_greater_or_equal_than_18_years_old
 
 	private
