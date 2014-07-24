@@ -24,6 +24,7 @@ gem 'paperclip'
 gem 'cancancan'
 gem 'figaro'
 gem 'bourbon'
+gem 'neat'
 gem 'gmaps4rails'
 
 group :development, :test  do
