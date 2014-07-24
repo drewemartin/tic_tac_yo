@@ -33,6 +33,15 @@ describe User do
   	it "password should be greater than 3 chars" do
       expect(FactoryGirl.build(:user,password:"123")).to_not be_valid
     end
+    it "first_name should only contain alphabets" do
+    	  expect(FactoryGirl.build(:user,first_name:"john1")).to_not be_valid
+    end
+    it "last_name should only contain alphabets" do
+    	   expect(FactoryGirl.build(:user,first_name:"john1")).to_not be_valid
+    end
+    it "email should contain @" do
+    	   expect(FactoryGirl.build(:user,email:"john1.msn.com")).to_not be_valid
+    end
   end
 
   context "After creation" do
@@ -80,5 +89,18 @@ describe User do
 		it "it should have many 'private_messages'" do
         expect(FactoryGirl.create(:user)).to respond_to(:private_messages)
     end
+
+    it "it should have many 'users_i_sent_messages'" do
+    	expect(FactoryGirl.create(:user)).to respond_to(:users_i_sent_messages)
+    end
+
+    it "it should have many 'obtained_messages'" do
+    	expect(FactoryGirl.create(:user)).to respond_to(:obtained_messages)
+    end
+    it "it should have many 'user_i_recieved_messages_from'" do
+    	user = FactoryGirl.create(:user)
+    	    	expect(user).to respond_to(:users_i_recieved_messages_from)
+    end
+
 	end
 end
