@@ -18,11 +18,11 @@
  @import 'base/grid-settings';
  @import "neat";
  @import "base/base";
+ @import "flatui";
  @import "components";
  @import "welcomes";
 
-
-
+$margin: 10px;
 
 body {
 	margin: 0;
@@ -30,4 +30,17 @@ body {
 
 .alerts {
  position:absolute;
+}
+
+
+.margin20 {
+	margin-top: $margin + 10px;
+}
+
+.padding20 {
+	padding-top: $margin + 40px;
+}
+
+.clearfix {
+	clear: both;
 }
