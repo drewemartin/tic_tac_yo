@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :favorites
   end
 
+
   get 'login' => 'users_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 

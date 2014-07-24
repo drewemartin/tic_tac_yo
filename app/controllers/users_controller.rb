@@ -16,14 +16,26 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
   end
 
-  def edit
+  def create
+    @user = User.new(user_params)
+    p @user
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      render :new
+    end
   end
 
-  def update
+  def new
+    @user = User.new
   end
 
   private
   def user_params
+<<<<<<< HEAD
     params.require(:user).permit(:email, :password, :password_confirmation, :biography, :first_name, :last_name, :username, :gender, :gender_preference, :address, :date_of_birth)
+=======
+    params.require(:user).permit(:email, :first_name, :last_name, :username, :gender, :gender_preference, :address, :date_of_birth, :password, :password_confirmation)
+>>>>>>> 9e0d678cad4f650aa13d7f8d33116f7f9a8f82bb
   end
 end
