@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
- 
+  root to: 'welcomes#index'
+  
+  resources :welcomes
+
   resources :private_messages
   resources :blocks
   resources :favorites

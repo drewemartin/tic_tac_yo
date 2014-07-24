@@ -7,20 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="nav">
-    <% if current_user %>
-      <% link_to 'My Profile', user_path(current_user.id) %>
-      <% link_to 'Logout', :logout, method: :post%>
-    <% else %>
-      <% link_to 'Sign Up', new_user_path %>
-      <% link_to 'Login', :login %>
-    <% end %>
-  </div>
+    
+  <%= render 'layouts/topbar' %>
+
+ <div class="alerts">
     <p id="alert"><%= flash[:alert] %></p>
     <p id="notice"><%= flash[:notice] %></p>
-  <div>
-
   </div>
+
+
+
+
 <%= yield %>
 
 </body>
