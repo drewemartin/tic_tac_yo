@@ -1,0 +1,43 @@
+<h1>Games#show</h1>
+<p>Find me in app/views/games/show.html.erb</p>
+
+<h1>This is where a game should be</h1>
+
+<style type="text/css">
+  td {
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<table id="game_area">
+  <tbody><tr>
+    <td id="4">4</td>
+    <td id="9">9</td>
+    <td id="2">2</td>
+  </tr>
+  <tr>
+    <td id="3">3</td>
+    <td id="5">5</td>
+    <td id="7">7</td>
+  </tr>
+  <tr>
+    <td id="8">8</td>
+    <td id="1">1</td>
+    <td id="6">6</td>
+  </tr>
+</tbody></table>
+
+<script type="text/javascript">
+  var xScoreArray = []
+  var yScoreArray = []
+  var turnCounter = 1
+
+  $('td').click(function(){
+    if (turnCounter % 2 == 0){
+      $(this).text('o')
+    }
+  })
+
+</script>
+

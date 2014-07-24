@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @user = User.all
-    @user5 = User.all.limit(5)
+    @users = User.all
+    @users5 = User.all.limit(5)
   end
 
   def show
