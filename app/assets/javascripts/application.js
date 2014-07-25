@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).on('ready page:load', function(){
+	window.myDataRef = new Firebase('https://scorching-fire-2888.firebaseio.com/');
+});
+
+
