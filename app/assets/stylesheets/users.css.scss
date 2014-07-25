@@ -48,9 +48,16 @@ body {
    @include span-columns(8);
    @include shift(2);
 
+    .slick-list {
+      padding: 0 0 3% 4.5%;
+    }
     img {
       border-radius: 10px;
       border: 2px solid $cloud;
+    }
+
+    a {
+      color: #ccc;
     }
 
 	}

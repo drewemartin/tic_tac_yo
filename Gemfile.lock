@@ -75,6 +75,9 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     geocoder (1.2.3)
     gmaps4rails (2.1.2)
     handlebars_assets (0.17.1)
@@ -226,6 +229,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  foundation-icons-sass-rails
   geocoder
   gmaps4rails
   handlebars_assets
