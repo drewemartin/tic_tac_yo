@@ -1,18 +1,20 @@
 <header class="navigation">
   <div class="navigation-wrapper">
-    <a href="javascript:void(0)" class="logo">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="">
-    </a>
+
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
-        <li class="nav-link"><a href="javascript:void(0)">About Tic Tac Yo!</a></li>
-        <li class="nav-link"><a href="javascript:void(0)">Contact Us!</a></li>
+        
+        <li><em><%= link_to "Welcome! " + current_user.username, user_path(current_user), class: 'current_user' %></em></li>
+        <li id="notification-div">
+        <button class='go-to-game-button btn btn-warning'>You have been invited to play</button>
+      </li>
       </ul>       
     </div>
    <!--to add link to my profile -->
    <!-- test logout button -->
     <div class="navigation-tools" id="nav">
+       
          <a href="<%= new_user_path %>" class="sign-up">Sign Up</a>
          <a href="<%= new_user_session_path %>" class="log-in">Log in</a>
           <a href="<%= :logout %>" class="sign-up" method='post'>Log out</a>   

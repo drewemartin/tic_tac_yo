@@ -31,11 +31,11 @@ $(document).on('ready page:load', function(){
 		 this.snapshotUrl = snapshot.ref()
 		 if ((invitation.invitee_id === current_user.id) &&(invitation.accepted === false))
 		 {
-		 	$("#notification-div").html("<a href="+ invitation.game_board_url +"><button class='go-to-game-button' data-firebase-url="+ this.snapshotUrl +">"+ invitation.invitorName + " invites you for a game" +"</button></a>")
+		 	$("#notification-div").html("<a href="+ invitation.game_board_url +"><button class='go-to-game-button btn btn-warning' data-firebase-url="+ this.snapshotUrl +">"+ invitation.invitorName + " invites you for a game" +"</button></a>")
 		 }
 		 else if ((invitation.invitor_id === current_user.id)&&(invitation.accepted === true))
 		 {
-		 	 $("#notification-div").html("<a href="+ invitation.game_board_url +"><button class='go-to-game-button' data-firebase-url="+ this.snapshotUrl +">"+ invitation.inviteeName + " just accepted your invitation" +"</button></a>")
+		 	 $("#notification-div").html("<a href="+ invitation.game_board_url +"><button class='go-to-game-button btn btn-warning' data-firebase-url="+ this.snapshotUrl +">"+ invitation.inviteeName + " just accepted your invitation" +"</button></a>")
 		 }
 	};
 

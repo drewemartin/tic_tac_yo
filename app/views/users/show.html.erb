@@ -26,9 +26,11 @@
     </div>
     <div class="card-stats">
          <div class="btn-group">
-	        <span><%= link_to 'View', user_path(@user.id), class: "btn btn-success" %></span>
-	        <a class="btn btn-danger active" href="#fakelink"><span>Add to Favorites</span></a>
-          <a class="btn btn-primary" href="#fakelink"><span>Send a Private Message</span></a>
+
+          <a href="#fakelink" data-url=<%= game_path(@user, current_user) %> class="invitation-button btn btn-warning"><i class="fi-puzzle"></i><span> Invite <%= @user.username %> to play</a>
+	        <a class="btn btn-primary active" href="#fakelink"><i class="fi-heart"></i><span> Add to Favorites</span></a>    
+          <a href="#fakelink" data-url=<%= game_path(@user, current_user) %> class="invitation-button btn btn-danger"><i class="fi-x"></i><span> Block <%= @user.username %></a>
+
          </div>
     </div>
   </div>
@@ -38,7 +40,14 @@
 	<div id="description">
 	 <p><%= @user.biography %></p>
    <p><%= @user.biography %></p>
+   <p><a class="btn btn-inverse" href="#fakelink"><span><i class="fi-mail"></i> Send a Private Message</span></a></p>
 	</div>
+
+
+  <div id="mystats">
+
+
+  </div>
  </div>
 
 
@@ -51,18 +60,13 @@
 
 </div>
 
-=======
-<h2>User Show Page</h2>
-<p>First Name: <%= @user.first_name %></p>
-<p>Last Name: <%= @user.last_name %></p>
-<p>Username: <%= @user.username %></p>
-<p>Gender: <%= @user.gender %></p>
-<p>Address: <%= @user.address %></p>
-<p>Email: <%= @user.email %></p>
+
+
+
 <div id="user-info" data-user-id= <%= @user.id %> data-username =<%= @user.username %> data-first-name=<%= @user.first_name %> data-last-name =<%= @user.last_name %> >
 <div>	
 <div id="invitation-div">
-	<button class="invitation-button" data-url=<%= game_path(@user, current_user) %>>Invite <%= @user.username %></button>
+
 </div>
-<p>Current User: <%= current_user.username %></p>
+
 

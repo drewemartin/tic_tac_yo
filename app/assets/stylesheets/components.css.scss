@@ -260,7 +260,7 @@ header.navigation {
   }
 
   a.sign-up {
-    margin: 1em;
+    margin: .5em;
     display: inline-block;
     float: left;
     @include transition (all 0.2s ease-in-out);
@@ -282,7 +282,7 @@ header.navigation {
   }
 
   a.log-in {
-    margin: 1em;
+    margin: .5em;
     float: left;
     display: inline-block;
     @include transition (all 0.2s ease-in-out);
@@ -305,7 +305,7 @@ header.navigation {
 
   a.log-out {
     $navigation-nav-button-background: #c0392b;
-    margin: 1em;
+    margin: .5em;
     float: right;
     @include transition (all 0.2s ease-in-out);
     display: inline-block;

@@ -7,6 +7,10 @@ body {
 	background: $base-body-color;
 }
 
+header.navigation ul li a.current_user {
+  color: #3498db;
+}
+
 #search_results{
   
   @include outer-container;
@@ -26,6 +30,30 @@ body {
     padding: 4%;
     color: #fff;
     background: rgba(0,0,0,0.7);
+
+      a {
+        float: left;
+        margin-right: 5px;
+      
+      }
+
+      input {
+
+          border-radius: 4px;
+          padding: 10px 10px 13px 15px;
+          margin:0;
+
+          
+          [value] {
+            font-size: 15px;
+          }
+          
+          &:hover {
+            background: #ec7063;
+          }
+      }
+
+
   }
 
   span.username {
