@@ -47,4 +47,18 @@
 
 </div>
 
+=======
+<h2>User Show Page</h2>
+<p>First Name: <%= @user.first_name %></p>
+<p>Last Name: <%= @user.last_name %></p>
+<p>Username: <%= @user.username %></p>
+<p>Gender: <%= @user.gender %></p>
+<p>Address: <%= @user.address %></p>
+<p>Email: <%= @user.email %></p>
+<div id="user-info" data-user-id= <%= @user.id %> data-username =<%= @user.username %> data-first-name=<%= @user.first_name %> data-last-name =<%= @user.last_name %> >
+<div>	
+<div id="invitation-div">
+	<button class="invitation-button" data-url=<%= game_path(@user, current_user) %>>Invite <%= @user.username %></button>
+</div>
+<p>Current User: <%= current_user.username %></p>
 

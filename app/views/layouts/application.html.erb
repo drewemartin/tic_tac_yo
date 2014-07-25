@@ -4,13 +4,32 @@
   <title>TicTacYo</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%=javascript_include_tag "https://cdn.firebase.com/js/client/1.0.17/firebase.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
     
   <%= render 'layouts/topbar' %>
 
  <div class="alerts">
+
+  <div id="nav">
+    <% if current_user %>
+      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+      <%= link_to "Logout", :logout, method: :post %>
+      <div>Current User: <%= current_user.username  %></div>
+      <%= javascript_tag do %>
+        window.current_user = <%= raw current_user.to_json %>;
+      <% end %>
+      <div id="notification-div">
+      </div>
+    <% else %>
+      <%= link_to "Register", new_user_path %> |
+      <%= link_to "Login", :login %>
+    <% end %>
+  </div>
+
     <p id="alert"><%= flash[:alert] %></p>
     <p id="notice"><%= flash[:notice] %></p>
   </div>
