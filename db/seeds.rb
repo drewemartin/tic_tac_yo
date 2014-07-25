@@ -5,11 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.delete_all
 
 20.times do 
   User.create!(
     :email => Faker::Internet.email,
-    :crypted_password => "password#{(1..4500).to_a.sample}",
+    :crypted_password => "12345",
     :salt => "sodium",
     :first_name => Faker::Name.first_name,
     :last_name => Faker::Name.last_name,
