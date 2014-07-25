@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
 	validates :email, :uniqueness => true
 	validate :check_user_greater_or_equal_than_18_years_old
 
+  scope :most_recent_five, -> { all.limit(10) }
+  
 	private
 	def check_user_greater_or_equal_than_18_years_old
 			return if(date_of_birth.nil?)

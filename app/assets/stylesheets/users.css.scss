@@ -46,7 +46,12 @@ body {
   @include outer-container;
    .filtering {
    @include span-columns(8);
-  @include shift(2);
+   @include shift(2);
+
+    img {
+      border-radius: 10px;
+      border: 2px solid $cloud;
+    }
 
 	}
 
@@ -54,82 +59,7 @@ body {
 }
 
 
-.tooltip-item {
-  $clouds: #ecf0f1;
-  $midnight: #2c3e50;
-  $tooltip-background: $clouds;
-  $tooltip-color:$midnight;
-  $tooltip-width: 16em;
-  $tooltip-arrow-width: 8px;
-  $tooltip-shadow: 0 2px 2px silver;
-  $tooltip-distance-from-item: -260%;
-  $tooltip-arrow-distance-from-box: -$tooltip-arrow-width * 3.4;
 
-  border: 1px solid $base-border-color;
-  padding: .5em 1em;
-  border-radius: $base-border-radius;
-  position: relative;
-  margin-bottom: $base-line-height;
-
-  &:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .tooltip {
-    @include position(absolute, 0 0 0 50%);
-    @include box-sizing(border-box);
-    @include transition (all 0.2s ease-in-out);
-    bottom: $tooltip-distance-from-item;
-    background-color: $tooltip-background;
-    border-radius: $base-border-radius;
-    color: $tooltip-color;
-    font-size: .9em; // Make sure you use -webkit-backface-visibility: hidden; on the body element to prevent 1px nudging bugs.
-    line-height: 1.5em;
-    margin-left: -($tooltip-width/2);
-    opacity: 0;
-    padding: 1em;
-    box-shadow: $tooltip-shadow;
-    text-align: center;
-    visibility: hidden;
-    min-width: $tooltip-width;
-    z-index: 10;
-    font-family: $serif;
-
-    p {
-      margin-bottom: 0;
-    }
-
-    &:after {
-      $tooltip-arrow-distance-from-box: 85%;
-      @include position(absolute, 0 0 0 46%);
-      margin-left: -$tooltip-arrow-width;
-      border: $tooltip-arrow-width solid transparent;
-      color: $tooltip-background;
-      content: '▲';
-      text-shadow: $tooltip-shadow;
-      font-size: 1.4em;
-      pointer-events: none;
-      bottom: $tooltip-arrow-distance-from-box;
-    }
-  }
-}
-
-.tooltip-inner {
-background-color: #34495e;
-line-height: 1.286;
-padding: 12px 12px;
-text-align: center;
-width: 183px;
-border-radius: 6px;
-}
-
-.tooltip.bottom .tooltip-arrow {
-border-bottom-color: #34495e;
-border-width: 0 9px 9px;
-margin-left: -9px;
-top: -1px;
-}
 
 #facebook {
   @include outer-container;
@@ -237,6 +167,8 @@ top: -1px;
 
 .main {
   @include outer-container;
+  margin: 0 auto;
+
   #profile { 
     @include span-columns(12); 
     @include shift(1);

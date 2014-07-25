@@ -11,8 +11,9 @@
 
   <div class="filter">
    
-  <div class="tooltip-item tooltip-inner">I am  
 
+  <div class="tooltip-item tooltip-inner">
+    I am ▼
   <div class="tooltip">
     <div class="tooltip-arrow"></div>
      <ol>
@@ -30,8 +31,8 @@
 </div>
    <div class="filter">
    
-  <div class="tooltip-item">
-    I am looking for 
+  <div class="tooltip-item tooltip-inner">
+    I am looking for ▼
   <div class="tooltip">
      <ol>
         <li>
@@ -49,8 +50,8 @@
 
   <div class="filter">
    
-  <div class="tooltip-item">
-     I live in
+  <div class="tooltip-item tooltip-inner">
+     I live in ▼
   <div class="tooltip">
      <ol>
         <li>
@@ -86,18 +87,11 @@
     <div class="filtering">
 
         <h3>Users online</h3>
-  
-          <div></a><img src="http://lorempixel.com/150/150/nightlife/1"></div>
-          <div><img src="http://lorempixel.com/150/150/nightlife/2"></div>
-        <div><img src="http://lorempixel.com/150/150/nightlife/5"></div>
-         <div><img src="http://lorempixel.com/150/150/nightlife/6"></div>
-          <div><img src="http://lorempixel.com/150/150/nightlife/6"></div>
-
-          <div><img src="http://lorempixel.com/150/150/nightlife/7"></div>
-          <div><img src="http://lorempixel.com/150/150/nightlife/8"></div>
-           <div><img src="http://lorempixel.com/150/150/nightlife/9"></div>
-            <div><img src="http://lorempixel.com/150/150/people/5"></div>
-
+    
+        <% @user10.each do |user| %>
+          <div></a><img src="http://lorempixel.com/150/150/nightlife/1"><span><%= user.username %></span></div>
+        
+        <% end %>
           
         </div>
   
