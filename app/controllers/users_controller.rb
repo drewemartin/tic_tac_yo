@@ -14,20 +14,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-  end
 
-  def create
-    @user = User.new(user_params)
-    p @user
     if @user.save
-      redirect_to user_path(@user)
+      redirect_to(:users, notice: 'User was successfully created')
     else
       render :new
     end
-  end
-
-  def new
-    @user = User.new
   end
 
   private
