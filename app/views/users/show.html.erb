@@ -1,3 +1,53 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="main">
+
+<div class="padding20"></div>
+<div class="padding20"></div>
+
+	<div id="profile">
+
+		<div class="cards">
+  <div class="card">
+    <div class="card-image">
+      <img src="https://placeimg.com/640/480/people">
+    </div>
+    <div class="card-header">
+      <em>Username</em>
+    </div>
+    <div class="card-copy">
+		   <ul>
+		    <li><%= @user.gender %></li>
+		    <li>Username: <%= @user.username %></li>
+		    <li>Age: 32</li>
+		  </ul>
+    </div>
+    <div class="card-stats">
+         <div class="btn-group">
+	        <span><%= link_to 'View', user_path(@user.id), class: "btn btn-success" %></span>
+	        <a class="btn btn-danger active" href="#fakelink"><span>Add to Favorites</span></a>
+         </div>
+    </div>
+  </div>
+
+  <div id="bio">
+
+	<div id="description">
+	<ul>
+    <li><%= @user.gender %></li>
+    <li>Username: <%= @user.username %></li>
+    <li>Age: 32</li>
+
+  </ul>
+	</div>
+
+</div>
+
+
+</div>
+
+<div class="clearfix"></div>
+
+	</div>
+
+</div>
+
 

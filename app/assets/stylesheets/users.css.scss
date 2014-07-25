@@ -144,6 +144,29 @@ top: -1px;
 	}
 }
 
+.new_account {
+   @include outer-container;
+   padding-top: 5%;
+
+    .form {
+     padding: 2% 5% 5% 5%;
+     border-radius: $base-border-radius;
+     background:$cloud;
+     @include span-columns(6);
+     @include shift(3);
+
+      label {
+        font-weight: 700;
+      }
+
+      .submit {
+        float: right;
+      }
+   }
+  
+
+}
+
 .search-tools {
   $search-tools-border-color: $base-border-color;
   $search-tools-background: lighten($search-tools-border-color, 10);
@@ -211,5 +234,26 @@ top: -1px;
     }
   }
 }
+
+.main {
+  @include outer-container;
+  #profile { 
+    @include span-columns(12); 
+    @include shift(1);
+      .card {
+        width: 45%;
+      }
+  }
+  #bio  { 
+    @include span-columns(4); 
+    @include shift(1);
+      ul {
+        list-style-type: none;
+      }
+
+    }
+}
+
+
 
 
