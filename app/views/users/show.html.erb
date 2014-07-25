@@ -24,6 +24,7 @@
          <div class="btn-group">
 	        <span><%= link_to 'View', user_path(@user.id), class: "btn btn-success" %></span>
 	        <a class="btn btn-danger active" href="#fakelink"><span>Add to Favorites</span></a>
+          <a class="btn btn-primary" href="#fakelink"><span>Send a Private Message</span></a>
          </div>
     </div>
   </div>
@@ -31,15 +32,11 @@
   <div id="bio">
 
 	<div id="description">
-	<ul>
-    <li><%= @user.gender %></li>
-    <li>Username: <%= @user.username %></li>
-    <li>Age: 32</li>
-
-  </ul>
+	 <p><%= @user.biography %></p>
+   <p><%= @user.biography %></p>
 	</div>
+ </div>
 
-</div>
 
 
 </div>
