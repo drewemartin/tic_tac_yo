@@ -4,11 +4,19 @@
 
 
 $hero-copy-bg: rgba(52, 152, 219,.5);
+$alizarin: #c0392b;
+$cloud: #ecf0f1;
 
 .hero-copy {
 	background: $hero-copy-bg;
 	border-radius:  $base-border-radius;
 	padding: 3% 4%;
+}
+
+.hero-inner {
+  h1:first-child {
+    color: $alizarin
+  }
 }
 
 .account {
@@ -20,7 +28,7 @@ $hero-copy-bg: rgba(52, 152, 219,.5);
 
 
 .bottom {
-  background: #ecf0f1;
+  background: $cloud;
   margin:0;
   @include outer-container;
    #sign-up { @include span-columns(12); padding-top: 30px}

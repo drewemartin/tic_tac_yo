@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
 	validates :email, :uniqueness => true
 	validate :check_user_greater_or_equal_than_18_years_old
 
+
   def current_age
     age = DateTime.now.year - date_of_birth.year
   end
@@ -47,6 +48,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  scope :most_recent_five, -> { all.limit(10) }
 
   
 	private

@@ -5,7 +5,14 @@ $(document).ready(function() {
     $('.bottom').css('height', height);
 
     
-
+$('.filtering').slick({
+   slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: true,
+    autoplaySpeed: 2000, 
+    cssEase: 'ease',
+    dots: 'true'
+  });
 
 var filtered = false;
 

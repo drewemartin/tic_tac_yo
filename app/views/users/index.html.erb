@@ -12,8 +12,9 @@
 
   <div class="filter">
    
-  <div class="tooltip-item tooltip-inner">I am  
 
+  <div class="tooltip-item tooltip-inner">
+    I am ▼
   <div class="tooltip">
     <div class="tooltip-arrow"></div>
      <ol>
@@ -31,8 +32,8 @@
 </div>
    <div class="filter">
    
-  <div class="tooltip-item">
-    I am looking for 
+  <div class="tooltip-item tooltip-inner">
+    I am looking for ▼
   <div class="tooltip">
      <ol>
         <li>
@@ -50,8 +51,8 @@
 
   <div class="filter">
    
-  <div class="tooltip-item">
-     I live in
+  <div class="tooltip-item tooltip-inner">
+     I live in ▼
   <div class="tooltip">
      <ol>
         <li>
@@ -81,26 +82,37 @@
 
 <br>
 
+<div id="slider">
+
+  
+    <div class="filtering">
+
+        <h3>Users online</h3>
+    
+        <% @user10.each do |user| %>
+          <div></a><img src="http://lorempixel.com/150/150/nightlife/1"><span><%= user.username %></span></div>
+        
+        <% end %>
+          
+        </div>
+  
+  </div>
+
 
 
 <div id="search_results"><hr>
     <ul>
-      
-        <li class="block"><%= link_to image_tag("https://placeimg.com/640/480/people"), page_path('profile') %><img src=></a><span class="links"><%= render 'links' %></span></li>
+      <% @users.each do |user| %>
+        <li class="block"><%= link_to image_tag("https://placeimg.com/640/480/people"), user_path(user.id) %></a><span class='username'><%= user.username %></span>
+          <span class="links">
+              <div class="btn-group">
+                <span><%= link_to 'View', user_path(user.id), class: "btn btn-success" %></span>
+                <a class="btn btn-danger active" href="#fakelink"><span>Add to Favorites</span></a>
+               </div>
+          </span>
+      </li>
         
-        <li class="block"><img src="https://placeimg.com/640/480/people"><span class="links"><%= render 'links' %></span></li>
-        <li class="block"><img src="http://lorempixel.com/400/300/nightlife/3"><span class="links"><%= render 'links' %></span></li>
-        <li class="block"><img src="http://lorempixel.com/400/300/people/4"><span class="links"><%= render 'links' %></span></li>
-
-        <li class="block"><img src="http://lorempixel.com/400/300/nightlife/5"><span class="links"><%= render 'links' %></span></li>
-        <li class="block"><img src="http://lorempixel.com/400/300/people/6"><span class="links"><%= render 'links' %></span></li>
-        <li class="block"><img src="http://lorempixel.com/400/300/nightlife/7"><span class="links"><%= render 'links' %></span></li>
-        <li class="block"><img src="http://lorempixel.com/400/300/people/8"><span class="links"><%= render 'links' %></span></li>
-
-        <li class="block"><img src="http://lorempixel.com/400/300/people/5"><span class="links"><%= render 'links' %></span></li>
-        <li class="block"><img src="http://lorempixel.com/400/300/nightlife/6"><span class="links"><%= render 'links' %></span></li>
-        <li class="block"><img src="http://lorempixel.com/400/300/people/7"><span class="links"><%= render 'links' %></span></li>
-        <li class="block"><img src="http://lorempixel.com/400/300/nightlife/8"><span class="links"><%= render 'links' %></span></li>
+       <% end %>
     </ul>
 
 </div>

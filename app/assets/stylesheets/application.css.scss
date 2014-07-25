@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_self
+ *= require slick
  *= require jquery.bxslider
  */
 
@@ -19,8 +20,9 @@
  @import 'base/grid-settings';
  @import "neat";
  @import "base/base";
- @import "flatui";
  @import "components";
+ @import "flatui";
+ @import "animate";
  @import "welcomes";
  @import "users";
 
