@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    
+
     @users = User.all
     @users5 = User.all.limit(5)
     @user10 = User.all.limit(10)
@@ -35,12 +35,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-<<<<<<< HEAD
-
-    params.require(:user).permit(:email, :password, :password_confirmation, :biography, :first_name, :last_name, :username, :gender, :gender_preference, :address, :date_of_birth)
-
-=======
     params.require(:user).permit(:email, :first_name, :last_name, :username, :gender, :gender_preference, :address, :date_of_birth, :password, :password_confirmation)
->>>>>>> tictacyo_ui
   end
 end

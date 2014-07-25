@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <div class="main">
 
 <div id="search">
@@ -90,7 +90,7 @@
         <h3>Users online</h3>
     
         <% @user10.each do |user| %>
-          <div></a><img src="http://lorempixel.com/150/150/nightlife/1"><span><%= user.username %></span></div>
+          <div><%= link_to image_tag("https://placeimg.com/150/150/people"), user_path(user.id) %><span><%= link_to user.username, user_path(user.id) %></span></div>
         
         <% end %>
           
@@ -103,11 +103,11 @@
 <div id="search_results"><hr>
     <ul>
       <% @users.each do |user| %>
-        <li class="block"><%= link_to image_tag("https://placeimg.com/640/480/people"), user_path(user.id) %></a><span class='username'><%= user.username %></span>
+        <li class="block"><%= link_to image_tag("https://placeimg.com/640/480/people"), user_path(user.id) %><span class='username'><%= user.username %></span>
           <span class="links">
               <div class="btn-group">
-                <span><%= link_to 'View', user_path(user.id), class: "btn btn-success" %></span>
-                <a class="btn btn-danger active" href="#fakelink"><span>Add to Favorites</span></a>
+                <span> <%= link_to 'View', user_path(user.id), class: "btn btn-success fi-eye" %></span>
+                <a class="btn btn-danger active" href="#fakelink"><span><i class="fi-heart"></i> Add to Favorites</span></a>
                </div>
           </span>
       </li>
@@ -118,10 +118,5 @@
 </div>
 
 
-
-
-=======
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
 <%= render @users %>
->>>>>>> 9e7fd9bacabbfd39ecd9a364d59378afeeb7ae3e
+
