@@ -35,7 +35,22 @@ class User < ActiveRecord::Base
 	validates :email, :uniqueness => true
 	validate :check_user_greater_or_equal_than_18_years_old
 
+  def current_age
+    age = DateTime.now.year - date_of_birth.year
+  end
+
+  def gender_i_like
+    if gender_preference == "any"
+      interested_in = "I like girls and guys"
+    else
+      interested_in = "I like #{gender_preference}s"
+    end
+  end
+
+
+  
 	private
+
 	def check_user_greater_or_equal_than_18_years_old
 			return if(date_of_birth.nil?)
 			current_year = DateTime.now.year

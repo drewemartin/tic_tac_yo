@@ -1,0 +1,85 @@
+<h1>Games#show</h1>
+<p>Find me in app/views/games/show.html.erb</p>
+
+<h1>This is where a game should be</h1>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  $( document ).ready(function() {
+    console.log( "document loaded" );
+    playTicTacYo();
+
+    function newGame(){
+      //set up for post game
+    }
+
+    function playTicTacYo(){
+      var xScoreArray = [];
+      var oScoreArray = [];
+      var turnCounter = 1;
+
+      $('td').click(function() {
+        if(turnCounter % 2 != 0){
+          $(this).text("x");
+          $(this).off('click');
+          console.log("i was clicked");
+          xScoreArray.push($(this).attr('id'));
+          turnCounter++;
+          console.log("turnCounter is equal to "+turnCounter);
+          console.log(xScoreArray);
+        }
+        else{
+          $(this).text("o");
+          $(this).off('click');
+          console.log("i was clicked");
+          oScoreArray.push($(this).attr('id'));
+          turnCounter++;
+          console.log("turnCounter is equal to "+turnCounter);
+          console.log(oScoreArray);
+        }
+      });
+    };    
+  });
+</script>
+
+<style type="text/css">
+  td {
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div id="game_area">
+
+  <div id="x_game_info">
+    <p id="x_label">xlabel</p>
+    <p id="x_score">xscore</p>
+  </div>
+
+  <div id="o_game_info">
+    <p id="o_label">xlabel</p>
+    <p id="o_score">xscore</p>
+  </div>
+
+
+
+  <table>
+    <tbody>
+      <tr>
+        <td id="4">4</td>
+        <td id="9">9</td>
+        <td id="2">2</td>
+      </tr>
+      <tr>
+        <td id="3">3</td>
+        <td id="5">5</td>
+        <td id="7">7</td>
+      </tr>
+      <tr>
+        <td id="8">8</td>
+        <td id="1">1</td>
+        <td id="6">6</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
