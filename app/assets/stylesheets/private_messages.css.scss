@@ -22,7 +22,33 @@
 			&:hover {
 	  		 background-color: #5faee3;
 	  		}
+
+	  		#send {
+	  			float: right;
+	  			padding: 1% 3%;
+	  		} 
 	  	}
 
+	  button {
+	  	border:none;
+	  	box-shadow: none;
+	  	text-shadow: none;
+
+		  	&.btn-danger {
+		  	background: #e74c3c;
+		  		&:hover {
+		  			background: #ec7063;
+
+		  		}
+		   }
+
+		   &.btn-inverse {
+		  	background: #34495e;
+
+		  		&:hover {
+		  			background: #415b76;
+		  		}
+		  }
+	  }
   }
 }
