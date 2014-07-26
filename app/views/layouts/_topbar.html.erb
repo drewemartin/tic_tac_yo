@@ -4,20 +4,24 @@
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
-        
+        <% if current_user %>
         <li><em><%= link_to "Welcome! " + current_user.username, user_path(current_user), class: 'current_user' %></em></li>
         <li id="notification-div">
         <button class='go-to-game-button btn btn-warning'>You have been invited to play</button>
       </li>
+      <% end %>
       </ul>       
     </div>
    <!--to add link to my profile -->
    <!-- test logout button -->
     <div class="navigation-tools" id="nav">
-       
-         <a href="<%= new_user_path %>" class="sign-up">Sign Up</a>
-         <a href="<%= new_user_session_path %>" class="log-in">Log in</a>
-          <a href="<%= :logout %>" class="sign-up" method='post'>Log out</a>   
+        <% if current_user.nil? %>
+
+         <%= link_to("sign-up", new_user_path )%>
+         <a href="<%= new_users_session_path %>" class="log-in">Log in</a>
+        <% else %>
+         <%= link_to("Logout", users_session_path(current_user) , class: "logout", method: :delete)%>
+        <% end %>
        </div>
   </div>
 </header>

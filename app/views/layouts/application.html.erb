@@ -8,7 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+    <% if flash[:alert] %>
+      <p id="alert"> <%= flash[:alert] %> </p>
+    <% end %>
+    <% if flash[:notice] %>
+      <p id="notice"> <%= flash[:notice] %> </p>
+    <% end %>
     
   <%= render 'layouts/topbar' %>
 
@@ -17,6 +22,7 @@
   <div id="nav">
     <% if current_user %>
       <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+      <%= link_to "My Profile", user_path(current_user) %>
       <%= link_to "Logout", :logout, method: :post %>
       <div>Current User: <%= current_user.username  %></div>
       <%= javascript_tag do %>

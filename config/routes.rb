@@ -10,11 +10,7 @@ Rails.application.routes.draw do
   # params[:inviter_id] = 12
   # params[:invitee_id] = 21
 
-
-  resources :private_messages
-  resources :blocks
-  resources :favorites
-  resources :user_sessions
+  resources :users_sessions
   
   resources :users do
     resources :private_messages
@@ -24,6 +20,6 @@ Rails.application.routes.draw do
 
 
   get 'login' => 'users_sessions#new', :as => :login
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+  post 'logout' => 'users_sessions#destroy', :as => :logout
 
 end
