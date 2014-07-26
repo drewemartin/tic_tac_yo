@@ -28,29 +28,27 @@
 		  </ul>
     </div>
     <div class="card-stats">
-         <div class="btn-group">
+       
+   
 
-          <a href="#fakelink" data-url=<%= game_path(@user, current_user) %> class="invitation-button btn btn-warning"><i class="fi-puzzle"></i><span> Invite <%= @user.username %> to play</a>
-	        <a class="btn btn-primary active" href="#fakelink"><i class="fi-heart"></i><span> Favorites</span></a>    
-          <a href="#fakelink" data-url=<%= game_path(@user, current_user) %> class="invitation-button btn btn-danger"><i class="fi-x"></i><span> Block <%= @user.username %></a>
 
-         </div>
-    </div>
-    <div>
+    <div class="buttons">
      <% if @user.id != current_user.id %>
         <div id="invitation-div">
          <% if @block.nil? %>
-          <button class="invitation-button" data-url=<%= game_path(@user, current_user) %>>Invite <%= @user.username %></button>
+          <button class="invitation-button btn btn-warning" data-url=<%= game_path(@user, current_user) %>><i class="fi-puzzle"></i> Invite <%= @user.username %></button>
           <% end %>
         </div>
+
+
         <div id="favorite-div">
-          <% if @favorite.nil? %>
+          <% if @favorite.nil? %> 
             <%= render "favorites/favorite" %>
           <% else %>
             <%= render "favorites/destroy_favorite" %>
           <% end %>
         </div>
-        <div id="block-div">
+        <div id="block-div" class="btn">
           <% if @block.nil? %>
             <%= render "blocks/block" %>
           <% else %>
@@ -58,6 +56,7 @@
           <% end %>
         </div>
      <% else %>
+
         <div id = "favorite-list">
           <p>Favorite Users</p>
           <ul>
@@ -77,6 +76,8 @@
      <% end %>
     </div>
   </div>
+
+ </div>
 
   <div id="bio">
 
