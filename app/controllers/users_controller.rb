@@ -6,6 +6,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favorite = Favorite.where("favoriter_id = ? AND favorited_id = ?",current_user.id, @user.id).first
+    if current_user.id == @user.id
+      @favorite_users = current_user.favorite_users
+      p @favorite_users
+    else
+    end
   end
 
   def new
@@ -26,4 +32,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :biography, :first_name, :last_name, :username, :gender, :gender_preference, :address, :date_of_birth)
   end
+
 end

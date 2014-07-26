@@ -11,5 +11,38 @@ $(document).on('ready page:load', function(){
 
 		window.myDataRef.push({invitor_id: invitorId, invitee_id: inviteeId, inviteeName: inviteeName, invitorName: invitorName, accepted: false, game_board_url: game_invitation_url});
 		$(this).attr("disabled","disabled")
-	})
+	});
+
+	$(".add-to-favorite").submit(function(event){
+		event.preventDefault();
+		_this = $(this)
+		$.ajax({
+			url: $(this).attr('action'),
+			type: $(this).attr('method'),
+			dataType: 'json',
+			data: $(this).serialize()
+		}).done(function(data){
+			  $("#user-show-notification").html("you just added " + data.first_name + " " + data.last_name + " to your favorite list");
+			  _this.remove();
+			  $("#favorite-div").html();
+		});
+	});	
+
+	$(".remove-from-favorite").submit(function(event){
+		event.preventDefault();
+		_this = $(this)
+		$.ajax({
+			url: $(this).attr('action'),
+			type: $(this).attr('method'),
+			dataType: 'json',
+			data: $(this).serialize()
+		}).done(function(data){
+			  $("#user-show-notification").html("you just remove " + data.first_name + " " + data.last_name + " from your favorite list");
+			  _this.remove();
+			  $("#favorite-div").html();
+		});
+	});	
+
+
+
 });

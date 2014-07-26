@@ -6,9 +6,6 @@ Rails.application.routes.draw do
   # params[:inviter_id] = 12
   # params[:invitee_id] = 21
 
-  resources :private_messages
-  resources :blocks
-  resources :favorites
   resources :user_sessions
   
   resources :users do

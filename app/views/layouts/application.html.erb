@@ -11,6 +11,7 @@
   <div id="nav">
     <% if current_user %>
       <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
+      <%= link_to "My Profile", user_path(current_user) %>
       <%= link_to "Logout", :logout, method: :post %>
       <div>Current User: <%= current_user.username  %></div>
       <%= javascript_tag do %>
