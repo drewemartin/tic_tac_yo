@@ -1,3 +1,28 @@
 // Place all the styles related to the private_messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.main { 
+  @include outer-container;
+  table.private_messages {
+  		padding: 6%;
+	  	tr {
+	  		background: $cloud;
+
+	  		&:hover {
+	  		 background: #ccc;
+	  		}
+	  	}
+
+	  	tr.message_box {
+			background-color: #5faee3;
+
+			&:hover {
+	  		 background-color: #5faee3;
+	  		}
+	  	}
+
+  }
+}
