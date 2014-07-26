@@ -18,8 +18,8 @@
       <em>Username</em>
     </div>
     <div class="card-copy">
-		   <ul>
-		    <li><%= @user.gender %></li>
+		   <ul id="user-info">
+		    <li data-user-id=<%= @user.id %> data-username =<%= @user.username %>><%= @user.gender %></li>
 		    <li>Username: <%= @user.username %></li>
 		    <li>Age: 32</li>
 		  </ul>
@@ -28,7 +28,7 @@
          <div class="btn-group">
 
           <a href="#fakelink" data-url=<%= game_path(@user, current_user) %> class="invitation-button btn btn-warning"><i class="fi-puzzle"></i><span> Invite <%= @user.username %> to play</a>
-	        <a class="btn btn-primary active" href="#fakelink"><i class="fi-heart"></i><span> Add to Favorites</span></a>    
+	        <a class="btn btn-primary active" href="#fakelink"><i class="fi-heart"></i><span> Favorites</span></a>    
           <a href="#fakelink" data-url=<%= game_path(@user, current_user) %> class="invitation-button btn btn-danger"><i class="fi-x"></i><span> Block <%= @user.username %></a>
 
          </div>
@@ -44,10 +44,36 @@
 	</div>
 
 
-  <div id="mystats">
+  <div id="mystats"><br>
 
-
+    <table class="table-minimal text-center">
+      <thead>
+        <tr>
+          <th><i class='fi-heart'></i> My Favorites</th>
+          <th><i class='fi-puzzle'></i> My Games</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row 1 Cell 1</td>
+          <td>Row 1 Cell 2</td>
+        </tr>
+        <tr>
+          <td>Row 2 Cell 1</td>
+          <td>Row 2 Cell 2</td>
+        </tr>
+        <tr>
+          <td>Row 3 Cell 1</td>
+          <td>Row 3 Cell 2</td>         
+        </tr>
+        <tr>
+          <td>Row 4 Cell 1</td>
+          <td>Row 4 Cell 2</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+ 
  </div>
 
 
@@ -63,10 +89,5 @@
 
 
 
-<div id="user-info" data-user-id= <%= @user.id %> data-username =<%= @user.username %> data-first-name=<%= @user.first_name %> data-last-name =<%= @user.last_name %> >
-<div>	
-<div id="invitation-div">
-
-</div>
 
 

@@ -34,6 +34,7 @@ header.navigation ul li a.current_user {
       a {
         float: left;
         margin-right: 5px;
+        font-size: 12px;
       
       }
 
@@ -44,8 +45,8 @@ header.navigation ul li a.current_user {
           margin:0;
 
           
-          [value] {
-            font-size: 15px;
+          &[value] {
+            font-size: 12px;
           }
           
           &:hover {
@@ -218,9 +219,19 @@ header.navigation ul li a.current_user {
         list-style-type: none;
       }
 
+
     }
 }
 
+
+.text-center {
+
+    th, tr {
+       text-align: center;
+       color: $cloud;
+    }
+       
+}
 
 
 
