@@ -10,7 +10,9 @@
 <div>	
 <% if @user.id != current_user.id %>
 	<div id="invitation-div">
+	 <% if @block.nil? %>
 		<button class="invitation-button" data-url=<%= game_path(@user, current_user) %>>Invite <%= @user.username %></button>
+		<% end %>
 	</div>
 	<div id="favorite-div">
 		<% if @favorite.nil? %>
@@ -19,11 +21,26 @@
 			<%= render "favorites/destroy_favorite" %>
 		<% end %>
 	</div>
+	<div id="block-div">
+		<% if @block.nil? %>
+			<%= render "blocks/block" %>
+		<% else %>
+			<%= render "blocks/destroy_block" %>
+		<% end %>
+	</div>
 <% else %>
 	<div id = "favorite-list">
 		<p>Favorite Users</p>
 		<ul>
 		<% @favorite_users.each do |user|%>
+			<li> <%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></li>
+		<% end %>
+		</ul>
+	</div>
+	<div id = "block-list">
+		<p>Blocked Users</p>
+		<ul>
+		<% @blocked_users.each do |user|%>
 			<li> <%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></li>
 		<% end %>
 		</ul>

@@ -6,6 +6,8 @@ class FavoritesController < ApplicationController
   	respond_to do |format|
   		if @favorite.save
   			favorited_user = @favorite.favorited
+        #if the favorited_user is on the block list, remove it from the block list
+        Block.where(:blocker => current_user, :blocked => favorited_user).destroy_all
   			format.json{render json: {first_name: favorited_user.first_name, last_name: favorited_user.last_name}}
   		end
   	end

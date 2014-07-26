@@ -7,9 +7,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @favorite = Favorite.where("favoriter_id = ? AND favorited_id = ?",current_user.id, @user.id).first
+    @block = Block.where("blocker_id = ? AND blocked_id =?", current_user.id, @user.id).first
     if current_user.id == @user.id
       @favorite_users = current_user.favorite_users
       p @favorite_users
+      @blocked_users = current_user.blocked_users
+      p @blocked_users
     else
     end
   end
