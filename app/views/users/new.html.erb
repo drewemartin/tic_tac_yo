@@ -4,72 +4,7 @@
 <div class="animated fadeInDown">
 	<div class="form">
 	 	<h2>Sign up</h2><hr>
-
-		 <%= form_for(@user) do |f| %>
-			<% if @user.errors.any? %>
-		    <div class="error_messages">
-		      <h2>Form is invalid</h2>
-		      <ul>
-		      <% for message in @user.errors.full_messages %>
-		     <li>
-		       <%= message %>
-		     </li>
-		        <% end %>
-		      </ul>
-		    </div>
-			<% end %>
-			<div class="field">
-				<%= f.label :first_name %>
-				<%= f.text_field :first_name %>
-			</div>
-
-			<div class="field">
-				<%= f.label :last_name %>
-				<%= f.text_field :last_name %>
-			</div>
-
-			<div class="field">
-				<%= f.label :username %>
-				<%= f.text_field :username %>
-			</div>
-
-			<div class="field">
-				<%= f.label :email %>
-				<%= f.text_field :email %>
-			</div>
-
-			<div class="field">
-				<%= f.label :password %>
-				<%= f.password_field :password %>
-			</div>
-			
-			<div class="field">
-				<%= f.label :password_confirmation  %>
-				<%= f.password_field :password_confirmation %>
-			</div>
-
-			<div class="field">
-				<%= f.label :gender %>
-				<%= f.select :gender, [['male','male'],['female','female'],['any','any']]%>
-			</div>
-			<div class="field">
-				<%= f.label :gender_preference  %>
-				<%= f.select :gender_preference, [['male','male'],['female','female'],['any','any']]%>
-			</div>
-			<div class="field">
-				<%= f.label :address %>
-				<%= f.text_field :address %>
-			</div>
-			<div class="field">
-				<%= f.label :date_of_birth %>
-				<%= f.date_select :date_of_birth, :order => [:day, :month, :year], start_year: 1920%>
-			</div><hr>
-
-			<div class="action">
-				<%= f.submit class: 'submit' %>
-			</div>
-		<% end %>
-
+			<%= render "form" %>
 	 </div>
 	</div><!-- animation -->
 
