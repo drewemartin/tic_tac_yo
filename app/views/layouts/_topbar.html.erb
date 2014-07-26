@@ -17,8 +17,10 @@
         <% if current_user.nil? %>
 
          <%= link_to("sign-up", new_user_path )%>
+
          <a href="<%= new_users_session_path %>" class="log-in">Log in</a>
         <% else %>
+         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
          <%= link_to("Logout", users_session_path(current_user) , class: "logout", method: :delete)%>
         <% end %>
        </div>
