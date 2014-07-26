@@ -233,5 +233,51 @@ header.navigation ul li a.current_user {
        
 }
 
+.buttons {
+
+    > .btn {
+      padding: 0;
+    }
+
+    div {
+      float: left;
+      margin-right: 2%;
+
+      input#remove_from_favorite {
+        font-size: 15px;
+        background: #16a085;
+
+        &:hover {
+           background: #48c9b0;
+        }
+      }
+
+       input#add_favorite {
+        font-size: 15px;
+        background: #16a085;
+
+        &:hover {
+           background: #48c9b0;
+        }
+      }
+
+      input.block, 
+      input.block {
+        font-size: 15px;
+        background: #e74c3c;
+
+        &:hover {
+           background:  #e74c3c;
+        }
+      }
+    }  
+
+
+
+    
+}
+
+
+
 
 
