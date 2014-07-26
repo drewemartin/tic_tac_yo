@@ -20,5 +20,6 @@ test:
 
 production:
   adapter: postgresql
-  database: photogur
+  database: tictacyo
   host: localhost
+  port: 5432
