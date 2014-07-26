@@ -24,7 +24,9 @@ $(document).on('ready page:load', function(){
 
 	myDataRef.on('child_added', function(snapshot) {
         var invitation = snapshot.val();
+        if (typeof current_user != 'undefined'){
         showInvitation(invitation, snapshot)
+      }
       });
 
 	function showInvitation(invitation, snapshot){

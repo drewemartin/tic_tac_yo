@@ -7,7 +7,6 @@
         <% if current_user %>
         <li><em><%= link_to "Welcome! " + current_user.username, user_path(current_user), class: 'current_user' %></em></li>
         <li id="notification-div">
-        <button class='go-to-game-button btn btn-warning'>You have been invited to play</button>
       </li>
       <% end %>
       </ul>       
