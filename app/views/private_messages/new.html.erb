@@ -6,20 +6,33 @@
     <table class="table-minimal private_messages">
       <thead>
         <tr>
-          <th>To <input type="text" placeholder="receiver"></th>         
-        </tr>
-        <tr>
-        	<th>subject <input type="text" placeholder="subject"> </th>
+          <th>To <%= @user.first_name %> <%= @user.last_name %></th>
         </tr>     
       </thead>
       <tbody>
       	<tr class="message_box">
-
       		<td>
-      			Message
-      			<textarea rows='10'></textarea>
-
-      				 <button id="send">Send</button>	
+            <%= form_for([@user, @private_message]) do |f|%>
+              <% if @private_message.errors.any? %>
+                <div class="error_messages">
+                <%= pluralize(@private_message.errors.count, "error")%> prevent the message to be sent.
+                <ul>
+                  <% for message in @private_message.errors.full_messages %>
+                    <li>
+                      <%= message %>
+                    </li>
+                  <% end %>
+                </ul>
+                </div>
+              <% end %>
+              <div class="field">
+                <%= f.label :message %>
+                <%= f.text_area :message, :rows => "10" %>
+              </div>
+              <div class="actions">
+                <%= f.submit "Send", :id => "send"%>
+              </div>
+            <% end %>
       		</td>
 
       	</tr>

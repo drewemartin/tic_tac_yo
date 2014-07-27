@@ -1,11 +1,28 @@
 class PrivateMessagesController < ApplicationController
   
   def new
-  	@private = PrivateMessage.new
+  	@user = User.find(params[:user_id])
+  	@private_message = @user.private_messages.build
+  end
+
+  def create
+  	@user = User.find(params[:user_id])
+  	@private_message = PrivateMessage.new(private_message_params)
+  	@private_message.sender = current_user
+  	@private_message.recipient = @user
+  	if @private_message.save
+  		str_notice = "private message sent to " +  @user.first_name + " " + @user.last_name
+  		redirect_to user_path(@user), notice: str_notice
+  	else
+  		flash.now[:alert] = "failed to send private message to " +  @user.first_name + " " + @user.last_name
+  		render :new
+  	end
+
   end
 
 
-  def create
-  	@private = PrivateMessage.new
+  private
+  def private_message_params
+  	params.require(:private_message).permit(:message)
   end
 end

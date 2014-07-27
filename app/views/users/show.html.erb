@@ -84,7 +84,7 @@
 	<div id="description">
 	 <p><%= @user.biography %></p>
    <p><%= @user.biography %></p>
-   <p><a class="btn btn-inverse" href="#fakelink"><span><i class="fi-mail"></i> Send a Private Message</span></a></p>
+   <p><a class="btn btn-inverse" href=<%= new_user_private_message_path(@user)%>><span><i class="fi-mail"></i> Send a Private Message</span></a></p>
 	</div>
 
 
