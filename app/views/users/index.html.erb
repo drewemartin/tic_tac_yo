@@ -14,16 +14,16 @@
    
 
   <div class="tooltip-item tooltip-inner">
-    I am ▼
+    I am looking for a ▼
   <div class="tooltip">
     <div class="tooltip-arrow"></div>
      <ol>
         <li>
-          <input id="small" type="checkbox">
+          <input id="small" type="checkbox" name="gender" value="female">
           <label for="small">A woman</label>
         </li>
         <li>
-          <input id="medium" type="checkbox">
+          <input id="medium" type="checkbox" name="gender" value="male">
           <label for="medium">A man</label>
         </li>
       </ol>
@@ -33,16 +33,28 @@
    <div class="filter">
    
   <div class="tooltip-item tooltip-inner">
-    I am looking for ▼
+    With an age ▼
   <div class="tooltip">
      <ol>
         <li>
-          <input id="small" type="checkbox">
-          <label for="small">A woman</label>
+          <input id="small" type="checkbox" name="age" value= "18-30">
+          <label for="small">less than or equals to 30</label>
         </li>
         <li>
-          <input id="medium" type="checkbox">
-          <label for="medium">A man</label>
+          <input id="medium" type="checkbox" name="age" value ="31-40">
+          <label for="medium">31-40</label>
+        </li>
+        <li>
+          <input id="medium" type="checkbox" name="age" value = "41-50">
+          <label for="medium">41-50</label>
+        </li>
+        <li>
+          <input id="medium" type="checkbox" name="age" value = "51-60">
+          <label for="medium">51-60</label>
+        </li>
+        <li>
+          <input id="medium" type="checkbox" name="age" value = "61-100">
+          <label for="medium">greater than 60</label>
         </li>
       </ol>
   </div>
@@ -52,21 +64,21 @@
   <div class="filter">
    
   <div class="tooltip-item tooltip-inner">
-     I live in ▼
+     lives in ▼
   <div class="tooltip">
      <ol>
         <li>
-          <input id="small" type="checkbox">
-          <label for="small">City</label>
+          <input id="medium" type="checkbox" name="city" value="toronto">
+          <label for="medium">Toronto</label>
         </li>
         <li>
-          <input id="medium" type="checkbox">
-          <label for="medium">City</label>
+          <input id="medium" type="checkbox" name="city" value="newyork">
+          <label for="medium">New York</label>
         </li>
 
         <li>
-          <input id="medium" type="checkbox">
-          <label for="medium">City</label>
+          <input id="medium" type="checkbox" name="city" value="london">
+          <label for="medium">London</label>
         </li>
       </ol>
   </div>
@@ -75,8 +87,8 @@
 
 <br>
 
-  <div class="trigger">
-    <button>Search</button>
+  <div class="trigger" id= "search-div">
+    <button id="search-button" data-url=<%= users_path %>>Search</button>
   </div>
 </div>
 
@@ -102,8 +114,11 @@
 
 <div id="search_results"><hr>
 
-<ul>
+<ul id="users-gird-list">
  <%= render @users %>
  </ul>
 
 </div>
+<div id="paginate-div">
+<%= paginate @users %>
+<div>

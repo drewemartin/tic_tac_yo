@@ -51,7 +51,17 @@ class User < ActiveRecord::Base
 
   scope :most_recent_five, -> { all.limit(10) }
 
-  
+  scope :by_city, lambda{|city| near(city) unless city.nil? }
+
+  scope :by_gender, lambda{|gender| where(gender: gender) unless gender.nil?}
+
+  scope :by_age_range, lambda {|from_age, to_age|
+    datetime_birth_year_from = DateTime.new(DateTime.now.year-from_age) unless from_age.nil?
+    datetime_birth_year_to = DateTime.new(DateTime.now.year-to_age) unless to_age.nil?
+    where(date_of_birth: (datetime_birth_year_to)..datetime_birth_year_from) unless (from_age.nil? || to_age.nil?)
+  }
+
+
 	private
 
 	def check_user_greater_or_equal_than_18_years_old
