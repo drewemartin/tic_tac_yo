@@ -3,9 +3,19 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:index, :new, :create]
   def index
 
-    @users = User.all
-    @users5 = User.all.limit(5)
-    @user10 = User.all.limit(10)
+    if params[:search]
+      age_range = parse_age_range(params[:age])
+      @users = User.by_gender(params[:gender]).by_age_range(age_range[0],age_range[1]).by_city(params[:city]).page(params[:page])
+      @user10 = @users.limit(10)
+    else
+      @users = User.order('users.created_at DESC').page(params[:page])
+      @user10 = @users.limit(10)
+    end
+    puts @users.length
+    respond_to do |format|
+    format.html
+    format.js
+   end       
 
   end
 
@@ -51,9 +61,23 @@ class UsersController < ApplicationController
 
   private
   def user_params
-
     params.require(:user).permit(:email, :password, :password_confirmation, :biography, :first_name, :last_name, :username, :gender, :gender_preference, :address, :date_of_birth)
-
   end
 
+  def parse_age_range(age_range_str)
+      case age_range_str
+        when "18-30"
+          return [18,30]
+        when "31-40"
+          return [31,40]
+        when "41-50"
+          return [41,50]
+        when "51-60"
+          return [51,60]
+        when "61-100"
+          return [61,100]
+        else
+          return [nil, nil]
+      end
+  end
 end

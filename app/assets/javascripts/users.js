@@ -135,6 +135,24 @@ $(document).on('ready page:load', function(){
 		});
 	});
 
+ 	$("#search-div").on("click", "#search-button",function(){
+ 		var genderToSearch = $('input[name=gender]:checked').val();
+ 		console.log(genderToSearch)
+ 		var ageToSearch = $('input[name=age]:checked').val();
+ 		console.log(ageToSearch)
+ 		var cityToSearch = $('input[name=city]:checked').val();
+ 		console.log(cityToSearch)
+ 		console.log($(this).data("url"))
+
+ 		$.ajax({
+ 			url: $(this).data("url"),
+ 			type: 'get',
+ 			dataType: 'script',
+ 			data:{gender: genderToSearch, age: ageToSearch, city: cityToSearch, search: true},
+ 		}).done(function(data){});
+
+ 	});
+
 
 });
 
