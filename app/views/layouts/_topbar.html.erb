@@ -16,9 +16,11 @@
     <div class="navigation-tools" id="nav">
         <% if current_user.nil? %>
 
-         <%= link_to("sign-up", new_user_path )%>
+         <%= link_to "Sign Up", new_user_path, class: 'btn btn-info'%>
 
-         <a href="<%= new_users_session_path %>" class="log-in btn btn-info">Log in</a>
+         <%= link_to "Log In", new_users_session_path , class: 'btn btn-primary'%>
+
+
         <% else %>
         <%= link_to "Inbox", user_private_messages_path(current_user), class: 'btn btn-info' %>
          <%= link_to "Edit Profile", edit_user_path(current_user.id), class: 'btn btn-inverse'  %>

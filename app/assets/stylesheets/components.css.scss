@@ -327,62 +327,78 @@ header.navigation {
     }
   }
 
-  // Search bar
+}
 
-  .search-bar {
-    $search-bar-border-color: $base-border-color;
-    $search-bar-border: 1px solid $search-bar-border-color;
-    $search-bar-background: lighten($search-bar-border-color, 10);
+// Search bar
 
-    padding: .85em .6em; 
-    float: left;
-    .search-and-submit {
+.search-tools {
+  $search-tools-border-color: $base-border-color;
+  $search-tools-background: lighten($search-tools-border-color, 10);
+
+  @include clearfix;
+  border: 1px solid $search-tools-border-color;
+  background: $search-tools-background;
+  padding: $gutter / 2;
+  border-radius: $base-border-radius;
+
+  .filter {
+    margin-bottom: 1em;
+
+    @include media($large-screen) {
+      @include span-columns(3.5);
+      margin-bottom: 0;
+    }
+
+    > div {
+      @extend input[type="text"];
       position: relative;
 
-      input[type=search] {
-        background: $navigation-search-background;
-        border: $navigation-search-border;
-        padding: .6em .8em;
-        font-size: .9em;
-        font-style: italic;
-        color: $navigation-color;
-        border-radius: $base-border-radius * 2;
-        margin: 0;
-
-        @include media($large-screen) {
-          width: 100%;
-        }
-      }
-
-      button[type=submit] {
-        @include button(simple, lighten($navigation-search-background, 10));
-        position: absolute;
-        top: 0.3em;
-        right: 0.3em;
-        bottom: 0.3em;
-        left: auto;
-        outline: none;
-        padding: 0 15px;
-
-        img {
-          height: 12px;
-          opacity: .7;
-        }
+      label {
+        font-weight: 400;
+        cursor: pointer;
+        margin-bottom: 0;
       }
     }
 
-    @include media($horizontal-bar-mode) {
-      width: 16em;
-      position: relative; 
-      display: inline-block;
+    ol label {
+      display: inline;
+    }
 
-      input {
-        @include box-sizing(border-box);
-        display: block;
+    button {
+      @include button(simple, lighten($search-tools-background, 10));
+      @include position(absolute, 5px 5px auto auto);
+      font-size: .7em;
+    }
+
+    .hide-options {
+      margin-bottom: 0;
+
+      ol, button {
+        display: none;
+      }
+    }
+  }
+
+  .trigger {
+    width: 100%;
+
+    @include media($large-screen) {
+      @include span-columns(1.5);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 1em;
+      padding-top: .7em;
+      padding-bottom: .7em;
+
+      @include media($large-screen) {
+        margin-top: 1.95em;
       }
     }
   }
 }
+
 //Hero unit
 
 .hero {

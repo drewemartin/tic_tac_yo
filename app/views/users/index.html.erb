@@ -1,96 +1,76 @@
 
 <div class="main">
 
-<div id="search">
+<div class="padding20"></div>
 
 <div class="search-tools">
-  <div class="margin20"></div>
-  <div class="margin20"></div>
-   <div class="margin20"></div>
-      <div class="margin20"></div>
-
-
   <div class="filter">
-   
-
-  <div class="tooltip-item tooltip-inner">
-    I am looking for a ▼
-  <div class="tooltip">
-    <div class="tooltip-arrow"></div>
-     <ol>
+    <label> I am searching for ▼</label>
+    <div>
+      <ol>
         <li>
-          <input id="small" type="checkbox" name="gender" value="female">
-          <label for="small">A woman</label>
+          <input id="male" type="checkbox" name="gender" value="male">
+          <label for="male">Male</label>
         </li>
         <li>
-          <input id="medium" type="checkbox" name="gender" value="male">
-          <label for="medium">A man</label>
+          <input id="female" type="checkbox" name="gender" value="male">
+          <label for="female">Female</label>
         </li>
       </ol>
+    </div>
   </div>
-</div>
-</div>
-   <div class="filter">
-   
-  <div class="tooltip-item tooltip-inner">
-    With an age ▼
-  <div class="tooltip">
-     <ol>
-        <li>
-          <input id="small" type="checkbox" name="age" value= "18-30">
+  <div class="filter">
+    <label>Age ▼</label>
+    <div>
+      <ol>
+       <li>
+          <input id="eighteen" type="checkbox"  name="age" value= "18-30">
           <label for="small">less than or equals to 30</label>
         </li>
         <li>
-          <input id="medium" type="checkbox" name="age" value ="31-40">
+          <input id="thirty-one" type="checkbox"  name="age" value ="31-40">
           <label for="medium">31-40</label>
         </li>
         <li>
-          <input id="medium" type="checkbox" name="age" value = "41-50">
+          <input id="forty-one" type="checkbox"  name="age" value = "41-50">
           <label for="medium">41-50</label>
         </li>
         <li>
-          <input id="medium" type="checkbox" name="age" value = "51-60">
+          <input id="fifty-one" type="checkbox"  name="age" value = "51-60">
           <label for="medium">51-60</label>
         </li>
         <li>
-          <input id="medium" type="checkbox" name="age" value = "61-100">
+          <input id="sixty-one" type="checkbox"  name="age" value = "61-100">
           <label for="medium">greater than 60</label>
         </li>
       </ol>
+    </div>
   </div>
-</div>
-</div>
-
-  <div class="filter">
-   
-  <div class="tooltip-item tooltip-inner">
-     lives in ▼
-  <div class="tooltip">
-     <ol>
-        <li>
-          <input id="medium" type="checkbox" name="city" value="toronto">
-          <label for="medium">Toronto</label>
+    <div class="filter">
+    <label>City ▼</label>
+    <div>
+      <ol>
+         <li>
+          <input id="toronto" type="checkbox"  name="city" value="toronto">
+          <label for="toronto">Toronto</label>
         </li>
         <li>
-          <input id="medium" type="checkbox" name="city" value="newyork">
-          <label for="medium">New York</label>
+          <input id="newyork" type="checkbox" name="city" value="newyork">
+          <label for="newyork">New York</label>
         </li>
 
         <li>
-          <input id="medium" type="checkbox" name="city" value="london">
-          <label for="medium">London</label>
+          <input id="london" type="checkbox"  name="city" value="london">
+          <label for="london">London</label>
         </li>
       </ol>
+    </div>
+  </div>
+  <div class="trigger">
+    <button>Search </button>
   </div>
 </div>
-</div>
 
-<br>
-
-  <div class="trigger" id= "search-div">
-    <button id="search-button" data-url=<%= users_path %>>Search</button>
-  </div>
-</div>
 
 <br>
 
