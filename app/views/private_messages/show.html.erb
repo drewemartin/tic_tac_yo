@@ -6,7 +6,7 @@
     
     <table class="table-minimal private_messages">
 
-<%= button_to "Back", "users/#{current_user.id}/private_messages", class: "btn btn-inverse" %>
+
 
 
       <thead>
@@ -25,6 +25,7 @@
           <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut ....</td>
           <td>
+            <%= link_to "Back", user_private_messages_path(current_user), class: "btn btn-inverse" %>
             <button class='btn btn-inverse'>Reply</button class='btn btn-danger'><button class='btn btn-danger'>Delete</button></td>
         </tr>
 

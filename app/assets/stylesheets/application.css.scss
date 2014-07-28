@@ -47,6 +47,17 @@ body {
 	padding-top: $margin + 40px;
 }
 
+#notice {
+	padding: 0 7%;
+	border-radius: 20px;
+	width: 100%;
+	font-size: 14px;
+	color: #ecf0f1;
+	font-weight: bold;
+	background: #1abc9c;
+	margin-left: 120%;	
+}
+
 
 .clearfix {
 	clear: both;

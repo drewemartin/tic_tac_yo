@@ -1,6 +1,11 @@
 <div class="main">
 
 <div class="padding20"></div>
+    
+  
+  <div id='new_message'>
+      <%= link_to 'New Message', new_user_private_message_path, class: 'btn btn-primary new_message'%> 
+  </div>
 
     <table class="table-minimal private_messages">
       <thead>
@@ -12,7 +17,10 @@
         </tr>
       </thead>
       <tbody id = "received-messages-tbody">
-      <%= render @user.obtained_messages %>
+
+        <%= render @user.obtained_messages %>
+
+
       </tbody>
     </table>
 </div>
