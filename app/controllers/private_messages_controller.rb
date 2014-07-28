@@ -17,9 +17,21 @@ class PrivateMessagesController < ApplicationController
   		flash.now[:alert] = "failed to send private message to " +  @user.first_name + " " + @user.last_name
   		render :new
   	end
-
   end
 
+  def index
+  	@user = User.find(params[:user_id])
+    p @user
+  end
+
+  def destroy
+  	private_message_to_destroy = PrivateMessage.find(params[:id])
+  	p private_message_to_destroy
+  	private_message_to_destroy.destroy
+  	respond_to do |format|
+  			format.json{render json:{action_status: "success"}}
+  	end
+  end
 
   private
   def private_message_params

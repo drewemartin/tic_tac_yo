@@ -1,0 +1,7 @@
+<tr class = "message-tr">
+  <td><%=private_message.created_at.in_time_zone(Time.zone.name).to_formatted_s(:long) %></td>
+  <td><%=private_message.sender.first_name %> <%=private_message.sender.last_name %></td>
+  <td><%=private_message.message %></td>
+  <td><%= link_to "Reply", new_user_private_message_path(private_message.sender), class: "btn btn-inverse"%>
+		<%= link_to "Delete", private_message_path(private_message), method: :delete,class: 'btn btn-danger delete-btn', remote: true %></td>
+</tr>

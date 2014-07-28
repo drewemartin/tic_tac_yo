@@ -13,10 +13,12 @@ Rails.application.routes.draw do
   resources :users_sessions
   
   resources :users do
-    resources :private_messages
+    resources :private_messages, :only => [:index,:new,:create] 
     resources :blocks
     resources :favorites
   end
+
+  resources :private_messages, :only =>[:destroy]
 
 
   get 'login' => 'users_sessions#new', :as => :login
