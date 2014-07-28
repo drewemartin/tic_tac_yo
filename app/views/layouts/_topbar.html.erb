@@ -18,11 +18,11 @@
 
          <%= link_to("sign-up", new_user_path )%>
 
-         <a href="<%= new_users_session_path %>" class="log-in">Log in</a>
+         <a href="<%= new_users_session_path %>" class="log-in btn btn-info">Log in</a>
         <% else %>
-        <%= link_to "Inbox", user_private_messages_path(current_user) %>
-         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-         <%= link_to("Logout", users_session_path(current_user) , class: "logout", method: :delete)%>
+        <%= link_to "Inbox", user_private_messages_path(current_user), class: 'btn btn-info' %>
+         <%= link_to "Edit Profile", edit_user_path(current_user.id), class: 'btn btn-inverse'  %>
+         <%= link_to("Logout", users_session_path(current_user) , class: "logout btn btn-danger", method: :delete)%>
         <% end %>
        </div>
   </div>
