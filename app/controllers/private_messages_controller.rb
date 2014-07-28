@@ -21,7 +21,7 @@ class PrivateMessagesController < ApplicationController
 
   def index
   	@user = User.find(params[:user_id])
-    p @user
+    @received_messages = @user.obtained_messages.excluding_by_senders(@user.blocked_users)
   end
 
   def destroy
