@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :favorites
   end
 
-  resources :private_messages, :only =>[:destroy]
+  resources :private_messages, :only =>[:destroy, :show]
 
 
   get 'login' => 'users_sessions#new', :as => :login

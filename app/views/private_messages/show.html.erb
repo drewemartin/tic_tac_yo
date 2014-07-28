@@ -2,7 +2,13 @@
 
 <div class="padding20"></div>
 
+    <div class="clearfix"></div>  
+    
     <table class="table-minimal private_messages">
+
+<%= button_to "Back", "users/#{current_user.id}/private_messages", class: "btn btn-inverse" %>
+
+
       <thead>
         <tr>
           <th width='150'>Date</th>
@@ -18,7 +24,8 @@
           <td>Lulu</td>
           <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut ....</td>
-          <td><button class='btn btn-inverse'>Reply</button class='btn btn-danger'><button class='btn btn-danger'>Delete</button></td>
+          <td>
+            <button class='btn btn-inverse'>Reply</button class='btn btn-danger'><button class='btn btn-danger'>Delete</button></td>
         </tr>
 
       </tbody>
