@@ -41,6 +41,14 @@ class User < ActiveRecord::Base
     age = DateTime.now.year - date_of_birth.year
   end
 
+  def has_blocked(user)
+    blocked_users.include?(user) ? true : false
+  end
+
+  def has_favorited(user)
+    favorite_users.include?(user) ? true : false
+  end
+
   def gender_i_like
     if gender_preference == "any"
       interested_in = "I like girls and guys"
