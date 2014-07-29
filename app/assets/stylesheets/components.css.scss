@@ -780,7 +780,7 @@ top: -1px;
 
   tbody {
     tr:hover > td, tr:hover > th {
-      background-color: $table-hover-color;
+      background-color: lighten($base-body-color, 35);
     }
     tr:first-child td {
       border-top: 2px solid $table-border-color;
