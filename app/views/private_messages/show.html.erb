@@ -26,8 +26,8 @@
           tempor incididunt ut ....</td>
           <td>
             <%= link_to "Back", user_private_messages_path(current_user), class: "btn btn-primary" %>
-            <%= link_to "Reply", new_user_private_message_path(private_message.sender), class: "btn btn-inverse" %>
-            <%= link_to "Delete", private_message_path(private_message), method: :delete, class: "btn btn-danger", remote: true  %>
+            <%= link_to "Reply", new_user_private_message_path(@private_message.sender), class: "btn btn-inverse" %>
+            <%= link_to "Delete", private_message_path(@private_message), method: :delete, class: "btn btn-danger delete-btn", remote: true  %>
         </tr>
 
       </tbody>
