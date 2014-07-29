@@ -5,7 +5,7 @@ $(document).scroll(function(){
     var y = $(this).scrollTop();
     if (y > 500) {
     	setInterval(function() {
-      		$('.account').fadeIn();
+      		$('.account1').fadeIn('slow');
 	    }, 1500);
         
       }

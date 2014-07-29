@@ -25,8 +25,9 @@
           <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut ....</td>
           <td>
-            <%= link_to "Back", user_private_messages_path(current_user), class: "btn btn-inverse" %>
-            <button class='btn btn-inverse'>Reply</button class='btn btn-danger'><button class='btn btn-danger'>Delete</button></td>
+            <%= link_to "Back", user_private_messages_path(current_user), class: "btn btn-primary" %>
+            <%= link_to "Reply", new_user_private_message_path(private_message.sender), class: "btn btn-inverse" %>
+            <%= link_to "Delete", private_message_path(private_message), method: :delete, class: "btn btn-danger", remote: true  %>
         </tr>
 
       </tbody>

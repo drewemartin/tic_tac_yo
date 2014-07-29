@@ -48,21 +48,18 @@
 				
 		  <div class="margin20"></div>
 
-
-     
-
-
-			<h1>Join the best free dating site on Earth. <em>(tagline)</em></h1>
 			<div class="account">
 
         <% if current_user %>
-          <%= link_to "Search for Users", users_path, class: 'btn btn-inverse btn-lg'%>
-          <%= link_to "See who is online", users_path , class: 'btn btn-primary btn-lg'%>
+          <%= link_to " Search for Users", users_path, class: 'btn btn-inverse btn-lg fi-heart'%>
+          <%= link_to " See who is online", users_path , class: 'btn btn-primary btn-lg fi-eye'%>
 			    
         <% else %>
-          <%= link_to "Sign Up", new_user_path, class: 'btn btn-inverse btn-lg'%>
-          <%= link_to "Log In", new_users_session_path , class: 'btn btn-primary btn-lg '%>
+          <%= link_to "Sign Up", new_user_path, class: 'btn btn-inverse btn-lg '%>
+          <%= link_to " Log In", new_users_session_path , class: 'btn btn-primary btn-lg'%>
         <% end %>
+
+        <h1>Join the best free dating site on Earth. <em>(tagline)</em></h1>
 			   <div class="clearfix"></div>
 	
     		</div>
@@ -76,14 +73,14 @@
     <div class="content">
         <h3>About Tic Tac Yo!  
            
-            <span class="account">
+            <span class="account1">
               <% if current_user %>
-                <%= link_to "Search for Users", users_path, class: 'btn btn-inverse btn-lg'%>
-                <%= link_to "See who is online", users_path , class: 'btn btn-primary btn-lg'%>
+                <%= link_to " Search for Users", users_path, class: 'btn btn-inverse btn-lg fi-heart'%>
+                <%= link_to " See who is online", users_path , class: 'btn btn-primary btn-lg fi-eye'%>
                 
               <% else %>
                 <%= link_to "Sign Up", new_user_path, class: 'btn btn-inverse btn-lg'%>
-                <%= link_to "Log In", new_users_session_path , class: 'btn btn-primary btn-lg '%>
+                <%= link_to "Log In", new_users_session_path , class: 'btn btn-primary btn-lg'%>
               <% end %>
            <div class="clearfix"></div>
   
