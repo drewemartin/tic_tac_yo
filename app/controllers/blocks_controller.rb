@@ -5,21 +5,22 @@ class BlocksController < ApplicationController
   	@block = current_user.blocks.build(blocked: user_to_add)
   	respond_to do |format|
   		if @block.save
-  			blocked_user = @block.blocked
-  			#if the blocked_user is on the favorite list, remove it from the favorite list
-  			Favorite.where(:favoriter => current_user, :favorited => blocked_user).destroy_all
-  			format.json{render json: {first_name: blocked_user.first_name, last_name: blocked_user.last_name}}
+  			@user = @block.blocked
+  			#if the @user is on the favorite list, remove it from the favorite list
+  			Favorite.where(:favoriter => current_user, :favorited => @user).destroy_all
+  			# format.json{render json: {first_name: blocked_user.first_name, last_name: blocked_user.last_name}}
+        format.js{render partial: "blocks/destroy_block"}
   		end
   	end
   end
 
   def destroy
   	block_to_delete = Block.find(params[:id])
-    blocked_user = block_to_delete.blocked
+    @user = block_to_delete.blocked
+    block_to_delete.destroy
     respond_to do |format|
-      if block_to_delete.destroy
-        format.json{render json:{first_name: blocked_user.first_name, last_name: blocked_user.last_name}}
-      end
+        # format.json{render json:{first_name: @user.first_name, last_name: @user.last_name}}
+        format.js{render partial: "blocks/block"}
     end
   end
 end

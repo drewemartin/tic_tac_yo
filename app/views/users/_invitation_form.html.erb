@@ -1,0 +1,3 @@
+<% if !current_user.has_blocked(@user) && current_users_list.include?(@user) %>
+<button class="invitation-button btn btn-warning" data-url=<%= game_path(@user, current_user) %>><i class="fi-puzzle"></i> Invite <%= @user.username %></button>
+<% end %>

@@ -4,4 +4,8 @@ class PrivateMessage < ActiveRecord::Base
 
 	validates :sender, :recipient, :presence => true
 	validates :message, length: { minimum: 1 }
+
+	scope :by_recipient, lambda{|recipient| where(recipient: recipient) unless recipient.nil?}
+
+	scope :excluding_by_senders, lambda{|senders| where.not(sender: senders) if senders.any?}
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724171005) do
+ActiveRecord::Schema.define(version: 20140728190331) do
 
   create_table "blocks", force: true do |t|
     t.integer  "blocker_id"
@@ -56,9 +56,14 @@ ActiveRecord::Schema.define(version: 20140724171005) do
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.datetime "date_of_birth"
+    t.datetime "last_login_at"
+    t.datetime "last_logout_at"
+    t.datetime "last_activity_at"
+    t.string   "last_login_from_ip_address"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["last_logout_at", "last_activity_at"], name: "index_users_on_last_logout_at_and_last_activity_at"
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
 

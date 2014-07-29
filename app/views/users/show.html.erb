@@ -25,34 +25,29 @@
         <li>Last Name: <%= @user.last_name %></li>
         <li>Gender: <%= @user.gender %></li>
 		    <li>Age: 32</li>
+        <li>Online Status: <%= current_users_list.include?(@user) %></li>
 		  </ul>
     </div>
     <div class="card-stats">
        
-   
-
-
     <div class="buttons">
      <% if @user.id != current_user.id %>
         <div id="invitation-div">
-         <% if @block.nil? %>
-          <button class="invitation-button btn btn-warning" data-url=<%= game_path(@user, current_user) %>><i class="fi-puzzle"></i> Invite <%= @user.username %></button>
-          <% end %>
+          <%= render partial: "invitation_form" %>
         </div>
 
-
-        <div id="favorite-div">
+        <div id="favorite-div" class="btn">
           <% if @favorite.nil? %> 
-            <%= render "favorites/favorite" %>
+            <%= render partial: "favorites/favorite" %>
           <% else %>
-            <%= render "favorites/destroy_favorite" %>
+            <%= render partial: "favorites/destroy_favorite" %>
           <% end %>
         </div>
         <div id="block-div" class="btn">
-          <% if @block.nil? %>
-            <%= render "blocks/block" %>
+          <% if !current_user.has_blocked(@user) %>
+            <%= render partial: "blocks/block" %>
           <% else %>
-            <%= render "blocks/destroy_block" %>
+            <%= render partial: "blocks/destroy_block" %>
           <% end %>
         </div>
      <% else %>
@@ -83,8 +78,9 @@
 
 	<div id="description">
 	 <p><%= @user.biography %></p>
-   <p><%= @user.biography %></p>
-   <p><a class="btn btn-inverse" href=<%= new_user_private_message_path(@user)%>><span><i class="fi-mail"></i> Send a Private Message</span></a></p>
+   <div id="send-private-message-div">
+    <%= render "send_private_message" %>
+   </div>
 	</div>
 
 
