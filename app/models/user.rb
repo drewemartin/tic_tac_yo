@@ -59,9 +59,9 @@ class User < ActiveRecord::Base
 
   scope :most_recent_five, -> { all.limit(10) }
 
-  scope :by_city, lambda{|city| near(city) unless city.nil? }
+  scope :by_city, lambda{|city| near(city) unless (city.nil? || city == 'all')}
 
-  scope :by_gender, lambda{|gender| where(gender: gender) unless gender.nil?}
+  scope :by_gender, lambda{|gender| where(gender: gender) unless (gender.nil? || gender == 'all')}
 
   scope :by_age_range, lambda {|from_age, to_age|
     datetime_birth_year_from = DateTime.new(DateTime.now.year-from_age) unless from_age.nil?
