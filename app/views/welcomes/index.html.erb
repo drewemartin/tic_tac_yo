@@ -61,7 +61,7 @@
 			    
         <% else %>
           <%= link_to "Sign Up", new_user_path, class: 'btn btn-inverse btn-lg'%>
-          <%= link_to "Log In", new_users_session_path , class: 'btn btn-primary btn-lg'%>
+          <%= link_to "Log In", new_users_session_path , class: 'btn btn-primary btn-lg '%>
         <% end %>
 			   <div class="clearfix"></div>
 	
@@ -74,7 +74,23 @@
 <div class="bottom">
 <div id="about">
     <div class="content">
-        <h3>About Tic Tac Yo!</h3><hr>
+        <h3>About Tic Tac Yo!  
+           
+            <span class="account">
+              <% if current_user %>
+                <%= link_to "Search for Users", users_path, class: 'btn btn-inverse btn-lg'%>
+                <%= link_to "See who is online", users_path , class: 'btn btn-primary btn-lg'%>
+                
+              <% else %>
+                <%= link_to "Sign Up", new_user_path, class: 'btn btn-inverse btn-lg'%>
+                <%= link_to "Log In", new_users_session_path , class: 'btn btn-primary btn-lg '%>
+              <% end %>
+           <div class="clearfix"></div>
+  
+         </span>
+        </h3>
+
+        <hr>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

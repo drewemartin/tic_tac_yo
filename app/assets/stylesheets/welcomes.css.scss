@@ -34,13 +34,16 @@ $cloud: #ecf0f1;
 
 
 .bottom {
-
   margin:0;
   @include outer-container;
    #sign-up { @include span-columns(12); padding-top: 30px}
     @include outer-container;
       .search-tools { @include outer-container;
       @include span-columns(6);@include shift(3);}
+}
+
+.account {
+  display: none;
 }
 
 
