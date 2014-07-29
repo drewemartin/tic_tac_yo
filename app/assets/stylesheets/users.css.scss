@@ -281,12 +281,14 @@ header.navigation ul li a.current_user {
         }
       }
     }  
-
-
-
     
 }
 
+.pagination {
+    a {
+      color: $cloud;
+    }
+}
 
 
 
