@@ -44,6 +44,13 @@
   <input type="text" id="username" placeholder="name">
   <input type="text" id="messageInput" placeholder="place message here">
 </div>
+<script type="text/javascript">
+  var players = {
+    player1: <%= @inviter.id %>,
+    player2: <%= @invitee.id %>
+  };
+</script>
+
 
 <style type="text/css">
     td {
