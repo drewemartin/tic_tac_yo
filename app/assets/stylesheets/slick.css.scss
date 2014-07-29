@@ -63,9 +63,9 @@ $opacity-not-active: .25;
         outline: none;
     }
 
-    .slick-loading & {
-        background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
-    }
+    // .slick-loading & {
+    //     background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+    // }
 
     &.dragging {
         cursor: pointer;
