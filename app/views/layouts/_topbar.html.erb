@@ -4,10 +4,14 @@
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
+          <li><%= link_to 'Home', root_url %></li>
         <% if current_user %>
-        <li><em><%= link_to "Welcome! " + current_user.username, user_path(current_user), class: 'current_user' %></em></li>
+         <li><%= link_to 'About', '/#about' %></li>
+    
+          <li><em><%= link_to "Welcome! " + current_user.username, user_path(current_user), class: 'current_user' %></em></li>
+    
         <li id="notification-div">
-      </li>
+        </li>
       <% end %>
       </ul>       
     </div>
@@ -26,7 +30,7 @@
          <%= link_to "Edit Profile", edit_user_path(current_user.id), class: 'btn btn-inverse'  %>
          <%= link_to("Logout", users_session_path(current_user) , class: "logout btn btn-danger", method: :delete)%>
         <% end %>
-       </div>
+   </div>
   </div>
 </header>
 <div >

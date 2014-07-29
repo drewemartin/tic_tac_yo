@@ -7,7 +7,6 @@
               <div class="btn-group">
 
                 <%= link_to 'View', user_path(user.id), class: "btn btn-success fi-eye" %>
-                <%= link_to 'Play', user_path(user.id), class: "btn btn-warning fi-puzzle", id: 'game_invite'  %>
 
                 <% if current_user %>
                   <%= form_tag( user_favorites_path(current_user),{:method=>:post, :class => 'favorite_form'}) do%>
@@ -15,7 +14,7 @@
                           <%= hidden_field_tag :favoriter_id, current_user.id %>
 
                       <%= hidden_field_tag :favorited_id, user.id %>
-                      <%= submit_tag  "♥ Favorite", class: "btn btn-danger active" %>
+                      <%= submit_tag  "♥ Favorite", class: "btn btn-warning active" %>
                     <% end %> 
                 <% end%>
                </div>

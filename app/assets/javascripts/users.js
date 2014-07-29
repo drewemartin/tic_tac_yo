@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
 	var height = $(window).height();	
     $('.main').css('height', height);

@@ -25,7 +25,14 @@
         <li>Last Name: <%= @user.last_name %></li>
         <li>Gender: <%= @user.gender %></li>
 		    <li>Age: 32</li>
-        <li>Online Status: <%= current_users_list.include?(@user) %></li>
+        <li>Online Status: 
+
+            <% if current_users_list.include?(@user) == true %>
+              <span class='green'><i class='fi-check'></i> Online</span>
+            <% else %>
+              <span class='red'><i class='fi-x'></i> Offline</span>
+            <% end %>
+        </li>
 		  </ul>
     </div>
     <div class="card-stats">

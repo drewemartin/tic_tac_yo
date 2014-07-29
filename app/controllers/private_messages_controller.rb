@@ -24,6 +24,11 @@ class PrivateMessagesController < ApplicationController
     @received_messages = @user.obtained_messages.excluding_by_senders(@user.blocked_users)
   end
 
+  def show
+    @private_message = PrivateMessage.find(params[:id])
+    #@received_messages = @user.obtained_messages.excluding_by_senders(@user.blocked_users)
+  end
+
   def destroy
   	private_message_to_destroy = PrivateMessage.find(params[:id])
   	p private_message_to_destroy

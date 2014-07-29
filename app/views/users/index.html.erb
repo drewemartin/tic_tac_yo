@@ -94,11 +94,12 @@
 
 <div id="search_results"><hr>
 
-<ul id="users-gird-list">
- <%= render @users %>
- </ul>
-
+  <ul id="users-gird-list">
+    <%= render @users %>
+  </ul>
+    
 </div>
-<div id="paginate-div">
-<%= paginate @users %>
-<div>
+
+  <span id="paginate" class='right'>
+    <%= paginate @users %>
+  </span>

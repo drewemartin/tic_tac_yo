@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require animate
 //= require_tree .
+
 $(document).on('ready page:load', function(){
 	myDataRef = new Firebase('https://scorching-fire-2888.firebaseio.com/');
 
