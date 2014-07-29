@@ -11,6 +11,11 @@ header.navigation ul li a.current_user {
   color: #3498db;
 }
 
+h2 {
+  margin: 0;
+  padding: 30px 0;
+}
+
 #search_results{
   
   @include outer-container;
@@ -205,21 +210,23 @@ header.navigation ul li a.current_user {
   @include outer-container;
   margin: 0 auto;
 
-  #profile { 
-    @include span-columns(12); 
-    @include shift(1);
-      .card {
-        width: 45%;
+    #profile { 
+      @include span-columns(12); 
+      @include shift(1);
+        .card {
+          width: 45%;
+        }
+    }
+    #bio  { 
+      @include span-columns(4); 
+      @include shift(1);
+        ul {
+          list-style-type: none;
+        }
       }
-  }
-  #bio  { 
-    @include span-columns(4); 
-    @include shift(1);
-      ul {
-        list-style-type: none;
-      }
-
-
+    #edit_form {
+      @include span-columns(6); 
+      @include shift(2);
     }
 }
 
