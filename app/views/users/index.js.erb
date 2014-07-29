@@ -1,2 +1,4 @@
-$('#users-gird-list').html("<%= j(render @users)%>")
+$('#users-grid-list').html("<%= j(render @users)%>");
+$("#slider").find(".filtering").html("<%= j(render partial: 'feature_user', collection: @user10) %>");
+window.initializeSlider();
 $('#paginate-div').replaceWith('<%= j paginate(@users) %>');

@@ -9,11 +9,15 @@
     <div>
       <ol>
         <li>
-          <input id="male" type="checkbox" name="gender" value="male">
+          <input id="all" type="radio"  name="gender" value='all'>
+          <label for="all">All</label>
+       </li>
+        <li>
+          <input id="male" type="radio" name="gender" value="male">
           <label for="male">Male</label>
         </li>
         <li>
-          <input id="female" type="checkbox" name="gender" value="male">
+          <input id="female" type="radio" name="gender" value="female">
           <label for="female">Female</label>
         </li>
       </ol>
@@ -24,23 +28,27 @@
     <div>
       <ol>
        <li>
-          <input id="eighteen" type="checkbox"  name="age" value= "18-30">
+          <input id="all" type="radio"  name="age" value='all'>
+          <label for="all">All</label>
+       </li>
+       <li>
+          <input id="eighteen" type="radio"  name="age" value= "18-30">
           <label for="small">less than or equals to 30</label>
         </li>
         <li>
-          <input id="thirty-one" type="checkbox"  name="age" value ="31-40">
+          <input id="thirty-one" type="radio"  name="age" value ="31-40">
           <label for="medium">31-40</label>
         </li>
         <li>
-          <input id="forty-one" type="checkbox"  name="age" value = "41-50">
+          <input id="forty-one" type="radio"  name="age" value = "41-50">
           <label for="medium">41-50</label>
         </li>
         <li>
-          <input id="fifty-one" type="checkbox"  name="age" value = "51-60">
+          <input id="fifty-one" type="radio"  name="age" value = "51-60">
           <label for="medium">51-60</label>
         </li>
         <li>
-          <input id="sixty-one" type="checkbox"  name="age" value = "61-100">
+          <input id="sixty-one" type="radio"  name="age" value = "61-100">
           <label for="medium">greater than 60</label>
         </li>
       </ol>
@@ -50,51 +58,43 @@
     <label>City ▼</label>
     <div>
       <ol>
+        <li>
+          <input id="all" type="radio"  name="city" value='all'>
+          <label for="all">All</label>
+        </li>
          <li>
-          <input id="toronto" type="checkbox"  name="city" value="toronto">
+          <input id="toronto" type="radio"  name="city" value="toronto">
           <label for="toronto">Toronto</label>
         </li>
         <li>
-          <input id="newyork" type="checkbox" name="city" value="newyork">
+          <input id="newyork" type="radio" name="city" value="new york">
           <label for="newyork">New York</label>
         </li>
 
         <li>
-          <input id="london" type="checkbox"  name="city" value="london">
+          <input id="london" type="radio"  name="city" value="london">
           <label for="london">London</label>
         </li>
       </ol>
     </div>
   </div>
   <div class="trigger">
-    <button>Search </button>
+    <button id ="search-button" data-url=<%= users_path %>>Search </button>
   </div>
 </div>
-
 
 <br>
 
 <div id="slider">
-
-  
     <div class="filtering">
-
-        <h3>Users online</h3>
-    
-        <% @user10.each do |user| %>
-          <div><%= link_to image_tag("https://placeimg.com/150/150/people"), user_path(user.id) %><span><%= link_to user.username, user_path(user.id) %></span></div>
-        
-        <% end %>
-          
-        </div>
-  
-  </div>
-
-
+      <h3>Feature Users</h3>
+        <%= render partial: 'feature_user', collection: @user10 %>     
+    </div>
+</div>
 
 <div id="search_results"><hr>
 
-<ul id="users-gird-list">
+<ul id="users-grid-list">
  <%= render @users %>
  </ul>
 
