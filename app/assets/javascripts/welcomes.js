@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 	var height = $(window).height();	
-    $('.hero-inner').css('height', height);
+    $('.hero-inner').css('height', height)
+    $('#about').css('height', height);
 
   $('#slider1, #slider2, #slider3').bxSlider({
 	  mode: 'fade',
