@@ -10,10 +10,6 @@
   width: 100%;
 }
 
-#game_area {
-  margin: 0 auto;
-  width: 50%;
-}
 
 .text-center {
   text-align: center;
@@ -50,10 +46,15 @@ td {
 	  }
 }
  
-#chat_box {
-	height: 200px;
-	width: 200px;
-	border: solid 5px;
-	font-size: 18px;
+
+#chat_region {
+  border: 2px solid #2ecc71;
+  border-radius: 10px;
+  background: rgba(46, 204, 113,.5);
+  padding: 5%;
 }
+
+
+
+
  
