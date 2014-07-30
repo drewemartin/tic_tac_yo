@@ -1,72 +1,76 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="container">
 
-<h1>This is where a game should be</h1>
 
-<div class="game_area">
-  <div id="x_game_info">
-    <p id="x_label">xlabel</p>
-    <p id="x_score">xscore</p>
-  </div>
-  <div id="o_game_info">
-    <p id="o_label">olabel</p>
-    <p id="o_score">oscore</p>
-  </div>
-  <div id="restart_region">
-    <p id="restart_message"></p>
-  </div>
-  <table>
-    <tr>
-      <td id = "0">T</td>
-      <td id = "1">I</td>
-      <td id = "2">C</td>
-    </tr>
-    <tr>
-      <td id = "3">T</td>
-      <td id = "4">A</td>
-      <td id = "5">C</td>
-    </tr>
-    <tr>
-      <td id = "6">Y</td>
-      <td id = "7">O</td>
-      <td id = "8">!</td>
-    </tr>
-  </table>
-  <button id='init'>Click Here to <br>Start New Game</button>
-  <button id='cont_playing'>Click to Continue Playing</button>
-  <button id='reset'>Reset Game</button>
+  <div id="game_area">
+
+    <div class='animated fadeInDown'>
+      <h1 class='text-center'>TIC TAC YO!</h1>
+      <hr>
+    </div>
+
+<!--     <div id="x_game_info">
+      <p id="x_label">xlabel</p>
+      <p id="x_score">xscore</p>
+    </div>
+
+    <div id="o_game_info">
+      <p id="o_label">xlabel</p>
+      <p id="o_score">xscore</p>
+    </div>
+ -->
+   <div class="buttons">
+      <a href="#" id='init' class='btn btn-primary btn-lg'>Start New Game</a>
+       <a href="#" id='cont_playing' class='btn btn-warning btn-lg'>Continue Playing</a>
+       <a href="#" id='reset' class='btn btn-danger btn-lg'>Reset Game</a>
+       <a  href='#chat_region' class='btn btn-success btn-lg'>Chat</a>
+    </div><br>
+
+    <table>
+      <tbody>
+        <tr>
+          <td id="4"><span class='odd'>T</span></td>
+          <td id="9"><span class='even'>I</span></td>
+          <td id="2"><span class='even'>C</span></td>
+        </tr>
+        <tr>
+          <td id="3"><span class='even'>T</span></td>
+          <td id="5"><span class='odd'>A</span></td>
+          <td id="7"><span class='even'>C</span></td>
+        </tr>
+        <tr>
+          <td id="8"><span class='even'>Y</span></td>
+          <td id="1"><span class='even'>O</span></td>
+          <td id="6"><span class='odd'>!</span></td>
+        </tr>
+      </tbody>
+    </table><br>
+
+    <a  href='#' class='btn btn-default btn-lg'>Back To Top</a>
+   
   <p id="player_goes"></p>
-</div>
-<div id="chat_region">
-  <div id="chat_box">
-    <p id="chat_reminder">look below to start chat</p>
-  </div>
-  <input type="text" id="username" placeholder="name">
-  <input type="text" id="messageInput" placeholder="place message here">
-</div>
-<script type="text/javascript">
-  players = {
-    player1: <%= @inviter.id %>,
-    player2: <%= @invitee.id %>,
-    firebase_url: <%= raw @firebase_url.to_json %>
-  };
+
+    <div id="chat_region">
+      <div id="chat_box">
+        <p id="chat_reminder">Start chat</p>
+      </div>
+      <div class="has-success">
+        <input type="text" id="username" class='form-control' placeholder="name"><br><br>
+        <textarea id="messageInput" class='form-control textarea' placeholder="place message here" rows='5' cols='60'></textarea>
+      </div>
+    </div>
 
 
-</script>
+</div><!-- game-area -->
+
+  <script type="text/javascript">
+    players = {
+      player1: <%= @inviter.id %>,
+      player2: <%= @invitee.id %>,
+      firebase_url: <%= raw @firebase_url.to_json %>
+    };
 
 
-<style type="text/css">
-    td {
-      height: 200px;
-      width: 200px;
-      border: solid 5px;
-      font-size: 70px;
-    }
-    #chat_box {
-      height: 200px;
-      width: 200px;
-      border: solid 5px;
-      font-size: 18px;
-    }
+  </script>
 
-</style>
+
+</div><!-- container  -->

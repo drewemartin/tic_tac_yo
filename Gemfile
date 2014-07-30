@@ -26,6 +26,7 @@ gem 'neat'
 gem 'bxslider-rails'
 gem 'gmaps4rails'
 gem 'faker'
+gem "font-awesome-rails"
 
 group :development, :test  do
 	gem 'rspec-rails', '~> 3.0.0'

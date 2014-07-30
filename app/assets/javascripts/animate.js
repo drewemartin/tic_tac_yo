@@ -1,5 +1,4 @@
 // JavaScript Document
-
 $(document).ready(function() {
   $('#navigation-menu a[href^="#"]').click(function() {
           var target = $(this.hash);
