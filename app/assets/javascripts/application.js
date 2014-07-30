@@ -15,4 +15,5 @@
 //= require jquery.bxslider
 //= require slick.min
 //= require animate
+//= require game_ui
 //= require_tree .
