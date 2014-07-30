@@ -8,7 +8,6 @@ $(document).on('ready page:load', function(){
       $('.bottom').css('height', height);
 
   window.initializeSlider = function() {
-    console.log("Initializing slider!");
     $('.filtering').unslick();
     $('.filtering').slick({
      slidesToShow: 4,
@@ -41,8 +40,6 @@ var filtered = false;
   
   var img = $('#search_results').children().children()
   img.on('mouseenter', function(){
-    console.log('mouseenter')
-
     link = $(this).find('.links')
      all_links = $('.links');
      // all_links.slideUp();
@@ -51,7 +48,6 @@ var filtered = false;
   });
 
   img.on('mouseleave', function(){
-    console.log('mouseleave')
     link = $(this).find('.links')
      all_links = $('.links');
       // all_links.slideDown(); 
@@ -59,15 +55,20 @@ var filtered = false;
   });
     
 
-	$("#invitation-div").on("click",".invitation-button", function(){
+	$(".invitation-button").on("click", function(ev){
+    // ev.preventDefault();
+    // $(this).off('click');
+    // ev.stopPropagation();
+
 		var invitorId = window.current_user.id;
 		var invitorName = window.current_user.username;
-		var inviteeId = $("#user-info").data("user-id")
-		var game_invitation_url = $(this).data("url")
-		var inviteeName = $("#user-info").data("username")
+		var inviteeId = $("#user-info").data("user-id");
+		var game_invitation_url = $(this).data("url");
+		var inviteeName = $("#user-info").data("username");
 
-		window.myDataRef.push({invitor_id: invitorId, invitee_id: inviteeId, inviteeName: inviteeName, invitorName: invitorName, accepted: false, game_board_url: game_invitation_url});
-		$(this).attr("disabled","disabled")
+		window.myDataRef.push({invitor_id: invitorId, invitee_id: inviteeId, inviteeName: inviteeName, invitorName: invitorName, game_state: 'pending', game_board_url: game_invitation_url});
+		$(this).attr("disabled","disabled");
+    return false;
 	});
 
 	//handle event "add the user to the favorite list"

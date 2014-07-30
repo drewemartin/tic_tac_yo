@@ -45,10 +45,13 @@
   <input type="text" id="messageInput" placeholder="place message here">
 </div>
 <script type="text/javascript">
-  var players = {
+  players = {
     player1: <%= @inviter.id %>,
-    player2: <%= @invitee.id %>
+    player2: <%= @invitee.id %>,
+    firebase_url: <%= raw @firebase_url.to_json %>
   };
+
+
 </script>
 
 

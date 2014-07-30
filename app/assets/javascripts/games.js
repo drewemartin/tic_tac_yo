@@ -8,26 +8,35 @@ $(document).on('ready page:load', function(){
   // 4. Update currentTurn on Firebase
   // 5. Check for a win
 
-  if ( players ) { 
-    var board = ["","","","","","","","",""]
-    var allGamesRef = new Firebase('https://scorching-fire-9227.firebaseio.com/games');
-    var currentGameRef;
+  if (players) { 
 
-    allGamesRef.on('child_added', function(snapshot) {
+    var board = ["","","","","","","","",""];
+    console.log(players.firebase_url);
+    var currentGameRef = new Firebase(players.firebase_url);
+    
+    //if(current_user == inviter )
+    currentGameRef.on('value', function(snapshot) {
       var invite = snapshot.val();
-
-      // If the two players are the players for this game
-      if (invite.player1 === players.player1 || 
-        invite.player2 === players.player1 ||
-        invite.player1 === players.player2 || 
-        invite.player2 === players.player2) {
-
-        currentGameRef = snapshot.ref();
-        setup();
+      if(invite.game_state === "game-started"){
+        $('td').text('');
+        play();       
       }
     });
 
-    // setup();
+    // currentGameRef.on('child_added', function(snapshot) {
+    //   var invite = snapshot.val();
+
+    //   // If the two players are the players for this game
+    //   // if (invite.invitee_id === players.player1 || 
+    //   //   invite.invitor_id === players.player1 ||
+    //   //   invite.invitee_id === players.player2 || 
+    //   //   invite.invitor_id === players.player2) {
+        
+        
+    //   // }
+    // });
+
+    setup();
 
     // $('#message_input').keypress(function (ev) {
     //   if (ev.keyCode == 13) {
@@ -76,11 +85,11 @@ $(document).on('ready page:load', function(){
         $(this).hide();
         $(this).off('click');
 
-        currentGameRef = allGamesRef.push({"game started": "this should persist"});
+        // currentGameRef = currentGameRef.push({"game started": "this should persist"});
 
         currentGameRef.on('child_added', function(snapshot){
           var value = snapshot.val();
-          if (game.player1.val() === players.player1 || game.player2.val() === players.player2){
+          // if (game.player1.val() === players.player1 || game.player2.val() === players.player2){
             switch ( snapshot.name() ) {
               case 'currentBoard':
                 updateBoard(value);
@@ -90,7 +99,7 @@ $(document).on('ready page:load', function(){
                 updateTurn(value);
                 break;
             }
-          }
+          // }
         });
 
       
