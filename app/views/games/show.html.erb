@@ -3,83 +3,70 @@
 
 <h1>This is where a game should be</h1>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>
-  $( document ).ready(function() {
-    console.log( "document loaded" );
-    playTicTacYo();
-
-    function newGame(){
-      //set up for post game
-    }
-
-    function playTicTacYo(){
-      var xScoreArray = [];
-      var oScoreArray = [];
-      var turnCounter = 1;
-
-      $('td').click(function() {
-        if(turnCounter % 2 != 0){
-          $(this).text("x");
-          $(this).off('click');
-          console.log("i was clicked");
-          xScoreArray.push($(this).attr('id'));
-          turnCounter++;
-          console.log("turnCounter is equal to "+turnCounter);
-          console.log(xScoreArray);
-        }
-        else{
-          $(this).text("o");
-          $(this).off('click');
-          console.log("i was clicked");
-          oScoreArray.push($(this).attr('id'));
-          turnCounter++;
-          console.log("turnCounter is equal to "+turnCounter);
-          console.log(oScoreArray);
-        }
-      });
-    };    
-  });
-</script>
-
-<style type="text/css">
-  td {
-    height: 200px;
-    width: 200px;
-  }
-</style>
-
-<div id="game_area">
-
+<div class="game_area">
   <div id="x_game_info">
     <p id="x_label">xlabel</p>
     <p id="x_score">xscore</p>
   </div>
-
   <div id="o_game_info">
-    <p id="o_label">xlabel</p>
-    <p id="o_score">xscore</p>
+    <p id="o_label">olabel</p>
+    <p id="o_score">oscore</p>
   </div>
-
-
-
+  <div id="restart_region">
+    <p id="restart_message"></p>
+  </div>
   <table>
-    <tbody>
-      <tr>
-        <td id="4">4</td>
-        <td id="9">9</td>
-        <td id="2">2</td>
-      </tr>
-      <tr>
-        <td id="3">3</td>
-        <td id="5">5</td>
-        <td id="7">7</td>
-      </tr>
-      <tr>
-        <td id="8">8</td>
-        <td id="1">1</td>
-        <td id="6">6</td>
-      </tr>
-    </tbody>
+    <tr>
+      <td id = "0">T</td>
+      <td id = "1">I</td>
+      <td id = "2">C</td>
+    </tr>
+    <tr>
+      <td id = "3">T</td>
+      <td id = "4">A</td>
+      <td id = "5">C</td>
+    </tr>
+    <tr>
+      <td id = "6">Y</td>
+      <td id = "7">O</td>
+      <td id = "8">!</td>
+    </tr>
   </table>
+  <button id='init'>Click Here to <br>Start New Game</button>
+  <button id='cont_playing'>Click to Continue Playing</button>
+  <button id='reset'>Reset Game</button>
+  <p id="player_goes"></p>
 </div>
+<div id="chat_region">
+  <div id="chat_box">
+    <p id="chat_reminder">look below to start chat</p>
+  </div>
+  <input type="text" id="username" placeholder="name">
+  <input type="text" id="messageInput" placeholder="place message here">
+</div>
+<script type="text/javascript">
+  players = {
+    player1: <%= @inviter.id %>,
+    player2: <%= @invitee.id %>,
+    firebase_url: <%= raw @firebase_url.to_json %>
+  };
+
+
+</script>
+
+
+<style type="text/css">
+    td {
+      height: 200px;
+      width: 200px;
+      border: solid 5px;
+      font-size: 70px;
+    }
+    #chat_box {
+      height: 200px;
+      width: 200px;
+      border: solid 5px;
+      font-size: 18px;
+    }
+
+</style>
