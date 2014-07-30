@@ -1,7 +1,7 @@
-$( document ).ready(function() {
+$(document).ready(function() {
 	var height = $(window).height();	
-    $('.hero-inner').css('height', height)
-    $('#about').css('height', height);
+  $('.hero-inner').css('height', height);
+  $('#about').css('height', height);
 
   $('#slider1, #slider2, #slider3').bxSlider({
 	  mode: 'fade',
@@ -9,8 +9,7 @@ $( document ).ready(function() {
 	  controls: false,
 	  pager: false,
 	  autoControls: false,
-  	 pause: 3000
+  	pause: 3000
    });
 				
 });
-
