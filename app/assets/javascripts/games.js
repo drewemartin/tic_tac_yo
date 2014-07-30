@@ -16,12 +16,15 @@ $(document).on('ready page:load', function(){
     
     //if(current_user == inviter )
     currentGameRef.on('value', function(snapshot) {
-      var invite = snapshot.val();
-      if(invite.game_state === "game-started"){
-        $('td').text('');
-        play();       
+      var game = snapshot.val();
+      if(game.game_state === "game-started"){
+        console.log("first function works") 
+        setup();      
       }
+
     });
+
+
 
     // currentGameRef.on('child_added', function(snapshot) {
     //   var invite = snapshot.val();
@@ -36,7 +39,7 @@ $(document).on('ready page:load', function(){
     //   // }
     // });
 
-    setup();
+    
 
     // $('#message_input').keypress(function (ev) {
     //   if (ev.keyCode == 13) {
@@ -69,38 +72,39 @@ $(document).on('ready page:load', function(){
     var oPlayerWins = 0;
 
     function setup(){
+      console.log(currentGameRef.parent())
       $('#reset').hide();
       $('#cont_playing').hide();
       
       $('#init').click(function(){
         console.log("#init clicked -> New Game");
+        currentGameRef.update({board: board, x_or_o_turn: x_or_o_turn, turn: turn})
+        // if (x_or_o_turn % 2 != 0){
+        //   $('#player_goes').text("X's turn");
+        // } else {
+        //   $('#player_goes').text("O's turn");
+        // }
         
-        if (x_or_o_turn % 2 != 0){
-          $('#player_goes').text("X's turn");
-        } else {
-          $('#player_goes').text("O's turn");
-        }
-        
-        $('td').text('');
-        $(this).hide();
-        $(this).off('click');
+        // $('td').text('');
+        // $(this).hide();
+        // $(this).off('click');
+      });
+    };
 
-        // currentGameRef = currentGameRef.push({"game started": "this should persist"});
+    currentGameRef.on('child_changed',function(snapshot){
+      var game = snapshot.val();
+      updateBoard(game.board);
+      console.log("child_added, click worked");
+      console.log(game.board);          
+    });
 
-        currentGameRef.on('child_added', function(snapshot){
-          var value = snapshot.val();
-          // if (game.player1.val() === players.player1 || game.player2.val() === players.player2){
-            switch ( snapshot.name() ) {
-              case 'currentBoard':
-                updateBoard(value);
-                break;
 
-              case 'currentTurn':
-                updateTurn(value);
-                break;
-            }
-          // }
-        });
+
+
+    function updateBoard(board) {
+    $('td').each(function(index, td) {
+      $(td).html(board[index]);
+    });
 
       
         // this function was removed from global scope 
@@ -108,9 +112,6 @@ $(document).on('ready page:load', function(){
         // since currentGameRef's value was provided in a function and couldn't be seen from outside
         // and timing of when currentGameRef was seen
 
-        play();
-      });
-    }
 
 
 
@@ -212,9 +213,9 @@ $(document).on('ready page:load', function(){
     turn = currentTurn;
     }
 
-    function updateBoard(currentBoard) {
+    function updateBoard(board) {
     $('td').each(function(index, td) {
-      $(td).html( currentBoard[index] );
+      $(td).html(board[index] );
     });
     board = currentBoard;
     }
@@ -254,4 +255,9 @@ $(document).on('ready page:load', function(){
        
     }
   }
+}
 });
+
+
+
+
