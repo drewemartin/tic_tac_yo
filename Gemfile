@@ -25,6 +25,7 @@ gem 'cancancan'
 gem 'figaro'
 gem 'bourbon'
 gem 'neat'
+gem 'bxslider-rails'
 gem 'gmaps4rails'
 gem 'faker'
 
