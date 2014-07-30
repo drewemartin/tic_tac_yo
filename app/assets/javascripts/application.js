@@ -12,8 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= jquery.bxslider
-//= jquery.slick.min.js
-//= require turbolinks
+//= require jquery.bxslider
+//= require slick.min
 //= require animate
 //= require_tree .

@@ -59,6 +59,8 @@ var filtered = false;
     // ev.preventDefault();
     // $(this).off('click');
     // ev.stopPropagation();
+    $(this).attr("disabled","disabled");
+    console.log("in invitation button click");
 
 		var invitorId = window.current_user.id;
 		var invitorName = window.current_user.username;
@@ -67,7 +69,7 @@ var filtered = false;
 		var inviteeName = $("#user-info").data("username");
 
 		window.myDataRef.push({invitor_id: invitorId, invitee_id: inviteeId, inviteeName: inviteeName, invitorName: invitorName, game_state: 'pending', game_board_url: game_invitation_url});
-		$(this).attr("disabled","disabled");
+		
     return false;
 	});
 
