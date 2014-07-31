@@ -28,19 +28,19 @@
     <table>
       <tbody>
         <tr>
-          <td id="4"><span class='odd'>T</span></td>
-          <td id="9"><span class='even'>I</span></td>
-          <td id="2"><span class='even'>C</span></td>
+          <td id="0"></td>
+          <td id="1"></td>
+          <td id="2"></td>
         </tr>
         <tr>
-          <td id="3"><span class='even'>T</span></td>
-          <td id="5"><span class='odd'>A</span></td>
-          <td id="7"><span class='even'>C</span></td>
+          <td id="3"></td>
+          <td id="4"></td>
+          <td id="5"></td>
         </tr>
         <tr>
-          <td id="8"><span class='even'>Y</span></td>
-          <td id="1"><span class='even'>O</span></td>
-          <td id="6"><span class='odd'>!</span></td>
+          <td id="6"></td>
+          <td id="7"></td>
+          <td id="8"></td>
         </tr>
       </tbody>
     </table><br>
@@ -66,7 +66,12 @@
     players = {
       player1: <%= @inviter.id %>,
       player2: <%= @invitee.id %>,
-      firebase_url: <%= raw @firebase_url.to_json %>
+      firebase_url: <%= raw @firebase_url.to_json %>,
+      start_game: 0,
+      redo: 0,
+      x_or_o_turn: "1",
+      turn: 1,
+      board: ["","","","","","","","",""]
     };
 
 
