@@ -162,6 +162,8 @@ $(document).on('ready page:load', function(){
     }
   }// end of initial if(players) statement
 
+  
+
 }); //end of document.ready
 
 
