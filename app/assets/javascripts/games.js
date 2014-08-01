@@ -170,8 +170,8 @@ $(document).on('ready page:load', function(){
 
 
       
-      $('#messageInput').keypress(function (ev){
-        if(ev.keycode == 13){
+      $('#messageInput').keypress(function (event){
+        if(event.which == 13){
           console.log("enter pressed");
           var text = $('#messageInput').val();
           var name = current_user.username;
