@@ -39,6 +39,9 @@
        
     <div class="buttons">
      <% if @user.id != current_user.id %>
+        <div id="send-private-message-div">
+          <%= render "send_private_message" %>
+        </div>
         <div id="invitation-div">
           <%= render partial: "invitation_form" %>
         </div>
@@ -67,9 +70,7 @@
 
 	<div id="description">
 	 <p><%= @user.biography %></p>
-   <div id="send-private-message-div">
-    <%= render "send_private_message" %>
-   </div>
+
 	</div>
 
 
