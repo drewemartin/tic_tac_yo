@@ -108,6 +108,12 @@ $(document).on('ready page:load', function(){
       players.board = board;
       $('td').each(function(index) {
         $(this).text(board[index]);
+
+        if (board[index] === 'x') {
+          $(this).html("<span class='animated bounceIn'><i class='fa fa-heart'></i>" + "</span>")
+        } else if(board[index] === 'o')  {
+          $(this).html("<span class='animated bounceIn'><i class='fa fa-heart-o'></i>" + "</span>")
+        }
       });
       
     }
