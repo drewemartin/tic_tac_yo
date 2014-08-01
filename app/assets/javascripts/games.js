@@ -7,6 +7,7 @@ $(document).on('ready page:load', function(){
     console.log(players.firebase_url);
     var inviteRef = new Firebase(players.firebase_url)
     var currentGameRef = new Firebase(players.firebase_url + "/game");
+    var currentChatRef = new Firebase(players.firebase_url + "/chat");
     
     inviteRef.on('child_changed', function(snapshot) {
       var game = snapshot.val();
@@ -165,6 +166,14 @@ $(document).on('ready page:load', function(){
         board[7] === playerMove &&
         board[8] === playerMove))
       }  
+
+
+
+      ///////chat/////////
+      
+
+
+
     }// end of initial if(players) statement
 
 }); //end of document.ready
