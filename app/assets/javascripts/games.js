@@ -169,25 +169,25 @@ $(document).on('ready page:load', function(){
 
 
 
-      ///////chat/////////
-
-      //currentChatRef//chat's FB
-      $('#messageInput').keypress(function(ev) {
-        if(ev.keycode === 13){
-          ev.preventDefault();
+      
+      $('#messageInput').keypress(function (ev){
+        if(ev.keycode == 13){
+          console.log("enter pressed");
           var text = $('#messageInput').val();
           var name = current_user.username;
           currentChatRef.push({text: text, name: name});
           $('#messageInput').val();
         }
-      })
+      });
 
       currentChatRef.on('child_added', function(snapshot){
         chat = snapshot.val()
+        renderMessages(chat.text, chat.name);
       });
 
       function renderMessages(text, name){
-        $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).prependTo($('#box'))
+        $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).prependTo($('#box'));
+        $('#box').scrollTop = $('#box').scrollHeight;
       }
 
 
