@@ -38,7 +38,8 @@ $(document).on('ready page:load', function(){
           start_game: 1,
           redo: players.redo,
           start_game_button: false,
-          game_tester: "Drew"
+          game_tester: "Drew",
+          win: players.win
         });
 
 
@@ -63,15 +64,18 @@ $(document).on('ready page:load', function(){
 
       currentGameRef.on('child_changed', function(snapshot){
         var game = snapshot.val()
-        console.log("child_changed");
-        switch ( snapshot.name() ) {
-              case 'board':
-                updateBoard(game);
-                break;
+          switch ( snapshot.name() ) {
+            case 'board':
+              updateBoard(game);
+              break;
 
-              case 'turn':
-                updateTurn(game);
-                break;
+            case 'turn':
+              updateTurn(game);
+              break;
+
+            case 'win':
+              updateWin(game);
+              break;
         }
 
       });
@@ -83,10 +87,13 @@ $(document).on('ready page:load', function(){
 
         if(players.turn % 2 !== 0 && $(this).text() === ''){
           gameMove("x",self);
+          console.log("x socre is:" + scoreChecker('x', players.board));
+          $('td').off('click');
         }//end of primary if conditional for td.click
         
         else if(players.turn % 2 === 0 && $(this).text() === ''){
-          gameMove("o",self)
+          console.log("o socre is:" + scoreChecker('o', players.board));
+          gameMove("o",self);
         }//end of else conditional for td.click
 
       });//end of click function 
@@ -95,10 +102,10 @@ $(document).on('ready page:load', function(){
     function gameMove(x_o, td){
       players.turn++;
       td.text(x_o);
-      td.off("click");
+      td.addclass("click");
       players.board[td.attr('id')] = x_o;
-      currentGameRef.update({turn: players.turn, board: players.board});
-      console.log(players.board)
+      console.log("user click :" + players.board[td.attr('id')] + " and its id is now:" + x_o);
+      currentGameRef.update({turn: players.turn, board: players.board, win:scoreChecker(x_o, players.board)});
     };
 
   
@@ -113,48 +120,52 @@ $(document).on('ready page:load', function(){
     }
 
     function updateTurn (turn) {
-          players.turn = turn;
+      players.turn = turn;
+    }
+
+    function updateWin (win) {
+      players.win = win
     }
 
 
   
 
 
-    function scoreChecker(playerMove){
-    return((players.board[0] == playerMove &&
-        players.board[1] == playerMove &&
-        players.board[2] == playerMove) ||
+    function scoreChecker(playerMove,board){
+      console.log(board);
+      return((board[0] === playerMove &&
+        board[1] === playerMove &&
+        board[2] === playerMove) ||
 
-      (players.board[0] == playerMove &&
-        players.board[3] == playerMove &&
-        players.board[6] == playerMove) ||
+      (board[0] === playerMove &&
+        board[3] === playerMove &&
+        board[6] === playerMove) ||
 
-      (players.board[0] == playerMove &&
-        players.board[4] == playerMove &&
-        players.board[8] == playerMove) ||
+      (board[0] === playerMove &&
+        board[4] === playerMove &&
+        board[8] === playerMove) ||
 
-      (players.board[1] == playerMove &&
-        players.board[4] == playerMove &&
-        players.board[7] == playerMove) ||
+      (board[1] === playerMove &&
+        board[4] === playerMove &&
+        board[7] === playerMove) ||
 
-      (players.board[2] == playerMove &&
-        players.board[5] == playerMove &&
-        players.board[8] == playerMove) ||
+      (board[2] === playerMove &&
+        board[5] === playerMove &&
+        board[8] === playerMove) ||
 
-      (players.board[2] == playerMove &&
-        players.board[4] == playerMove &&
-        players.board[6] == playerMove) ||
+      (board[2] === playerMove &&
+        board[4] === playerMove &&
+        board[6] === playerMove) ||
 
-      (players.board[3] == playerMove &&
-        players.board[4] == playerMove &&
-        players.board[5] == playerMove) ||
+      (board[3] === playerMove &&
+        board[4] === playerMove &&
+        board[5] === playerMove) ||
 
-      (players.board[6] == playerMove &&
-        players.board[7] == playerMove &&
-        players.board[8] == playerMove))
-       
-    }
-  }// end of initial if(players) statement
+      (board[6] === playerMove &&
+        board[7] === playerMove &&
+        board[8] === playerMove))
+      }  
+    }// end of initial if(players) statement
 
 }); //end of document.ready
 
