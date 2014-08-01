@@ -83,18 +83,20 @@ $(document).on('ready page:load', function(){
 
     function play(){
       console.log("Play function -> fired");
+      $("td").on("click");
       $("td").click(function(){
         var self = $(this)   
 
         if(players.turn % 2 !== 0 && $(this).text() === ''){
           gameMove("x",self);
           console.log("x socre is:" + scoreChecker('x', players.board));
-          $('td').off('click');
+          self.off('click');
         }//end of primary if conditional for td.click
         
         else if(players.turn % 2 === 0 && $(this).text() === ''){
           console.log("o socre is:" + scoreChecker('o', players.board));
           gameMove("o",self);
+          self.off('click');
         }//end of else conditional for td.click
 
       });//end of click function 
@@ -102,8 +104,8 @@ $(document).on('ready page:load', function(){
 
     function gameMove(x_o, td){
       players.turn++;
-      td.text(x_o);
-      td.addclass("click");
+      // td.text(x_o);
+      //td.addclass("click");
       players.board[td.attr('id')] = x_o;
       console.log("user click :" + players.board[td.attr('id')] + " and its id is now:" + x_o);
       currentGameRef.update({turn: players.turn, board: players.board, win:scoreChecker(x_o, players.board)});
@@ -119,8 +121,10 @@ $(document).on('ready page:load', function(){
 
         if (board[index] === 'x') {
           $(this).html("<span class='animated bounceIn'><i class='fa fa-heart'></i>" + "</span>")
+          $(this).off("click");
         } else if(board[index] === 'o')  {
           $(this).html("<span class='animated bounceIn'><i class='fa fa-heart-o'></i>" + "</span>")
+          $(this).off("click");
         }
       });
       
@@ -131,6 +135,10 @@ $(document).on('ready page:load', function(){
     }
 
     function updateWin (win) {
+      if (win !==  "unknown")
+      {
+        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ win +"</a>");
+      }
       players.win = win
     }
 
@@ -140,7 +148,7 @@ $(document).on('ready page:load', function(){
 
     function scoreChecker(playerMove,board){
       console.log(board);
-      return((board[0] === playerMove &&
+      if ((board[0] === playerMove &&
         board[1] === playerMove &&
         board[2] === playerMove) ||
 
@@ -171,6 +179,13 @@ $(document).on('ready page:load', function(){
       (board[6] === playerMove &&
         board[7] === playerMove &&
         board[8] === playerMove))
+      {
+        return playerMove.toUpperCase()+ " Win";
+      }
+      else
+      {
+        return "unknown";
+      }
       }  
 
 
