@@ -170,7 +170,27 @@ $(document).on('ready page:load', function(){
 
 
       ///////chat/////////
-      
+
+      //currentChatRef//chat's FB
+      $('#messageInput').keypress(function(ev) {
+        if(ev.keycode === 13){
+          ev.preventDefault();
+          var text = $('#messageInput').val();
+          var name = current_user.username;
+          currentChatRef.push({text: text, name: name});
+          $('#messageInput').val();
+        }
+      })
+
+      currentChatRef.on('child_added', function(snapshot){
+        chat = snapshot.val()
+      });
+
+      function renderMessages(text, name){
+        $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).prependTo($('#box'))
+      }
+
+
 
 
 
