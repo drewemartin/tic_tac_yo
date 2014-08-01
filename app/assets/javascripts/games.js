@@ -126,6 +126,7 @@ $(document).on('ready page:load', function(){
 
     function updateWin (win) {
       players.win = win
+
     }
 
 
@@ -172,11 +173,10 @@ $(document).on('ready page:load', function(){
       
       $('#messageInput').keypress(function (event){
         if(event.which == 13){
-          console.log("enter pressed");
           var text = $('#messageInput').val();
           var name = current_user.username;
           currentChatRef.push({text: text, name: name});
-          $('#messageInput').val();
+          $('#messageInput').val("");
         }
       });
 
@@ -186,8 +186,8 @@ $(document).on('ready page:load', function(){
       });
 
       function renderMessages(text, name){
-        $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).prependTo($('#box'));
-        $('#box').scrollTop = $('#box').scrollHeight;
+        $('<div/>').text(text).prepend($('<em/>').html("&nbsp;" + name + ':&nbsp;&nbsp;')).appendTo($('#box'));
+        $('#box').scrollTop($('#box')[0].scrollHeight);
       }
 
 
