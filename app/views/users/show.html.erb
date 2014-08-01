@@ -58,24 +58,6 @@
           <% end %>
         </div>
      <% else %>
-
-        <div id = "favorite-list">
-          <p>Favorite Users</p>
-          <ul>
-          <% @favorite_users.each do |user|%>
-            <li> <%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></li>
-          <% end %>
-          </ul>
-        </div>
-        <div id = "block-list">
-          <p>Blocked Users</p>
-          <ul>
-          <% @blocked_users.each do |user|%>
-            <li> <%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></li>
-          <% end %>
-          </ul>
-        </div>
-     <% end %>
     </div>
   </div>
 
@@ -92,33 +74,38 @@
 
 
   <div id="mystats"><br>
-
+  <% if @user.id == current_user.id %>
     <table class="table-minimal text-center">
       <thead>
         <tr>
-          <th><i class='fi-heart'></i> My Favorites</th>
-          <th><i class='fi-puzzle'></i> My Games</th>
+        <ul>
+         
+            <li></li>
+          <% end %>
+          </ul>
+          <th><i class='fi-heart'></i>Favorite Users</th>
+          <th><i class='fi-puzzle'></i>Blocked Users</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Row 1 Cell 1</td>
-          <td>Row 1 Cell 2</td>
+           <td id = "favorite-list"> 
+            <% @favorite_users.each do |user| %>
+             <p><%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></p>
+            <% end %>
+           </td>
+           <td id = "block-list">
+            <% @blocked_users.each do |user| %>
+              <p><%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></p>
+             <% end %>
+           </td>  
         </tr>
         <tr>
-          <td>Row 2 Cell 1</td>
-          <td>Row 2 Cell 2</td>
-        </tr>
-        <tr>
-          <td>Row 3 Cell 1</td>
-          <td>Row 3 Cell 2</td>         
-        </tr>
-        <tr>
-          <td>Row 4 Cell 1</td>
-          <td>Row 4 Cell 2</td>
+
         </tr>
       </tbody>
     </table>
+  <% end %>
   </div>
  
  </div>
