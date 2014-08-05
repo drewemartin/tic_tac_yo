@@ -6,7 +6,11 @@
     <table class="table-minimal private_messages">
       <thead>
         <tr>
-          <th>To: <%= @user.first_name %> <%= @user.last_name %></th>
+          <% if @user.id != current_user.id %>
+            <th>To: <%= @user.first_name %> <%= @user.last_name %></th>
+          <% else %>
+            <th><%= select_tag 'recipient_select', options_for_select(@favorite_users.map{|user| ["#{user.first_name} #{user.last_name}", user.id] }) %></th>
+          <% end %>
         </tr>     
       </thead>
       <tbody>
@@ -25,12 +29,14 @@
                 </ul>
                 </div>
               <% end %>
+              <%= f.hidden_field :recipient_id, :value => @user.id %>
+              <%= hidden_field_tag :source, @source%>
               <div class="field">
                 <%= f.label :message %>
                 <%= f.text_area :message, :rows => "10" %>
               </div>
               <div class="actions">
-                <%= f.submit "Send", :id => "send"%>
+                <%= f.submit "Send"%>
               </div>
             <% end %>
       		</td>
