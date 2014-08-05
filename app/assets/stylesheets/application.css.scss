@@ -79,3 +79,10 @@ body {
 .clearfix {
 	clear: both;
 }
+
+.table-minimal tbody td {
+ 	height: 50px;
+ 	border: none;
+ 	border-bottom: 1px solid #333;
+
+}
