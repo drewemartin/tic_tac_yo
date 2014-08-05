@@ -193,7 +193,7 @@ $(document).on('ready page:load', function(){
 
       
       $('#messageInput').keypress(function (event){
-        if(event.which == 13){
+        if(event.which == 13 && $('#messageInput').val() !== ''){
           var text = $('#messageInput').val();
           var name = current_user.username;
           currentChatRef.push({text: text, name: name});
