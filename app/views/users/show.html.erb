@@ -24,7 +24,10 @@
         <li>First Name: <%= @user.first_name %></li>
         <li>Last Name: <%= @user.last_name %></li>
         <li>Gender: <%= @user.gender %></li>
-		    <li>Age: 32</li>
+        <li>Original Size: <%= image_tag @user.avatar.url %></li>
+        <li>Medium Size: <%= image_tag @user.avatar.url(:medium) %></li>
+        <li>Thumb Size: <%= image_tag @user.avatar.url(:thumb) %></li>
+
         <li>Online Status: 
 
             <% if current_users_list.include?(@user) == true %>

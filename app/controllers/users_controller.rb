@@ -62,7 +62,7 @@ end
 
 private
 def user_params
-  params.require(:user).permit(:email, :password, :password_confirmation, :biography, :first_name, :last_name, :username, :gender, :gender_preference, :address, :date_of_birth)
+  params.require(:user).permit(:email, :password, :password_confirmation, :biography, :first_name, :last_name, :username, :gender, :gender_preference, :address, :date_of_birth, :avatar)
 end
 
 def parse_age_range(age_range_str)

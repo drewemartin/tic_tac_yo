@@ -36,7 +36,10 @@ class User < ActiveRecord::Base
 	validates :email, :uniqueness => true
 	validate :check_user_greater_or_equal_than_18_years_old
 
-
+  #paperclip configuration
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
   def current_age
     age = DateTime.now.year - date_of_birth.year
   end
