@@ -5,29 +5,21 @@
     <div class="clearfix"></div>  
     
     <table class="table-minimal private_messages">
-
-
-
-
       <thead>
         <tr>
-          <th width='150'>Date</th>
-          <th width='150'>From</th>
-          <th width='450'>Message</th>
-          <th width='250'>Manage</th>
+          <th>From: <%= @private_message.sender.first_name %> <%= @private_message.sender.last_name %> At: <%=@private_message.created_at.in_time_zone(Time.zone.name).to_formatted_s(:long) %></th>
         </tr>
       </thead>
-      <tbody>
-        	
+      <tbody>    	
         <tr>
-          <td>2014, Jul. 26</td>
-          <td>Lulu</td>
-          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut ....</td>
-          <td>
+          <td><%= @private_message.message %></td>
+        </tr>
+        <tr>
+           <td>
             <%= link_to "Back", user_private_messages_path(current_user), class: "btn btn-primary" %>
-            <%= link_to "Reply", new_user_private_message_path(@private_message.sender), class: "btn btn-inverse" %>
-            <%= link_to "Delete", private_message_path(@private_message), method: :delete, class: "btn btn-danger delete-btn", remote: true  %>
+            <%= link_to "Reply", new_user_private_message_path(@private_message.sender, :source =>private_message_path(@private_message)), class: "btn btn-inverse" %>
+            <%= link_to "Delete", private_message_path(@private_message), method: :delete, class: "btn btn-danger delete-btn" %>
+            </td>
         </tr>
 
       </tbody>
