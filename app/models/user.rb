@@ -72,6 +72,8 @@ class User < ActiveRecord::Base
     where(date_of_birth: (datetime_birth_year_to)..datetime_birth_year_from) unless (from_age.nil? || to_age.nil?)
   }
 
+  scope :everyone_but_current, lambda {|current_user| where("id != ?",current_user.id) unless current_user.nil?}
+
 
 	private
 
