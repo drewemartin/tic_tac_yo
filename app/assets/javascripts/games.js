@@ -24,9 +24,22 @@ $(document).on('ready page:load', function(){
           $('td').text('');
           $("#init").hide();
           $('#reset').show();
+          set_start_game_to_zero()
           play();
-        };        
+        }  
+
+        else if ( start_game !== null && start_game === 2 ) {
+          $('td').text('');
+          $("#game-result").hide();
+          $('#reset').show();
+          set_start_game_to_zero();
+          play();
+        };    
     });
+
+    function set_start_game_to_zero(){
+      currentGameRef.child('start_game').set({start_game: 0})
+    }
 
       
       $('#init').click(function(){
@@ -49,7 +62,7 @@ $(document).on('ready page:load', function(){
           board: players.newBoard, 
           x_or_o_turn: players.x_or_o_turn, 
           turn: players.turn, 
-          start_game: 1,
+          start_game: 2,
           redo: players.redo,
           start_game_button: false,
           game_tester: "Drew",
@@ -150,14 +163,16 @@ $(document).on('ready page:load', function(){
     function updateWin (win) {
       if (win !==  "unknown")
       {
-        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ win + " click here to play again" +"</a>");
+        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ win + "'s click here to play again" +"</a>");
+        $('#game-result').show();
         $('td').off('click');
+        players.win = "unknown";
+        players.turn = parseInt(players.x_or_o_turn) + 1
+        players.x_or_o_turn = parseInt(players.x_or_o_turn) + 1
+        currentGameRef.child('start_game').remove();
+        currentGameRef.child('win').remove();
       }
-      players.win = "unknown";
-      players.turn = parseInt(players.x_or_o_turn) + 1
-      players.x_or_o_turn = parseInt(players.x_or_o_turn) + 1
-      currentGameRef.child('start_game').remove();
-      currentGameRef.child('win').remove();
+      
     }
 
 
