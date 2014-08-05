@@ -13,6 +13,7 @@ $(document).on('ready page:load', function(){
       var game = snapshot.val();
       if(game.game_state === "game_started"){
         $('#init').on("click");
+        $('reset').hide();
       }
     });
 
@@ -24,6 +25,7 @@ $(document).on('ready page:load', function(){
           $('td').text('');
           $("#init").hide();
           $('#reset').show();
+          $('#reset').off('click');
           set_start_game_to_zero()
           play();
         }  
@@ -32,6 +34,7 @@ $(document).on('ready page:load', function(){
           $('td').text('');
           $("#game-result").hide();
           $('#reset').show();
+          $('#reset').off('click');
           set_start_game_to_zero();
           play();
         };    
@@ -110,6 +113,21 @@ $(document).on('ready page:load', function(){
     function play(){
       console.log("Play function -> fired");
       $("td").on("click");
+      $('#reset').on('click');
+
+      $('#reset').click(function(){
+        currentGameRef.set({
+          board: players.newBoard, 
+          x_or_o_turn: players.x_or_o_turn, 
+          turn: players.x_or_o_turn, 
+          start_game: 2,
+          redo: players.redo,
+          start_game_button: false,
+          game_tester: "Drew",
+          win: "unknown"
+        });
+      })
+
       $("td").click(function(){
         var self = $(this)   
 
@@ -165,6 +183,7 @@ $(document).on('ready page:load', function(){
       {
         $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ win + "'s click here to play again" +"</a>");
         $('#game-result').show();
+        $('#reset').off('click');
         $('td').off('click');
         players.win = "unknown";
         players.turn = parseInt(players.x_or_o_turn) + 1
