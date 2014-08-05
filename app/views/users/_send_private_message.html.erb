@@ -1,3 +1,7 @@
 <% if !current_user.has_blocked(@user) %>
-  <p><a class="btn btn-inverse" href=<%= new_user_private_message_path(@user)%>><span><i class="fi-mail"></i> Send a Private Message</span></a></p>
+	<p>
+		<%= link_to new_user_private_message_path(@user,:source =>user_path(@user)), class: "btn btn-inverse" do %>
+		<span><i class="fi-mail"></i> Send a Private Message</span>
+		<% end %>
+	</p>
 <% end %>
