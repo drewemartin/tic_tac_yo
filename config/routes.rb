@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'games/show/:invitee_id/:inviter_id/', to: 'games#show', as: 'game'
   # http://0.0.0.0:3000/games/show/21/12
 
+  resources :password_resets, :only => [:new,:create,:edit, :update]
+
   resources :users_sessions, :only => [:new, :create, :destroy]
   
   resources :users do
