@@ -209,10 +209,10 @@ h2 {
 .main {
   @include outer-container;
   margin: 0 auto;
+  padding: 0 5%;
 
     #profile { 
       @include span-columns(12); 
-      @include shift(1);
         .card {
           width: 45%;
         }
@@ -297,6 +297,9 @@ h2 {
     }
 }
 
+.card-stats .buttons div#invitation-div {
+  float:none;
+}
 
 
 
