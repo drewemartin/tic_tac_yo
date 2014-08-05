@@ -1,5 +1,5 @@
 $(document).on('ready page:load', function(){
-  $(".delete-btn").click(function(event){
+  $(".ajax-delete-private-message").click(function(event){
 			event.preventDefault();
 			event.stopPropagation();
 			var yes = confirm("Are you sure?")
@@ -13,5 +13,8 @@ $(document).on('ready page:load', function(){
 				_this.closest(".message-tr").remove();
 			});
 		}
+  });
+  $("#recipient_select").change(function(){
+  	$("#private_message_recipient_id").val($(this).val());
   });
 });
