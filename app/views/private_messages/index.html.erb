@@ -1,5 +1,9 @@
 <div class="main">
-
+    <div id='new_message'>
+      <%if @user.favorite_users.length > 0 %>
+        <%= link_to 'New Message', new_user_private_message_path, class: 'btn btn-inverse new_message'%> 
+      <% end %>
+    </div>
     <table class="table-minimal private_messages">
       <thead>
         <tr>
@@ -14,5 +18,7 @@
       </tbody>
     </table>
 </div>
-
+  <span id="paginate" class='right'>
+    <%= paginate @received_messages %>
+  </span>
 <div class="padding20"></div>
