@@ -1,5 +1,5 @@
 $('#users-grid-list').html("<%= j(render @users)%>");
 $("#slider").find(".filtering").html("<%= j(render partial: 'feature_user', collection: @user10) %>");
 window.initializeSlider();
-$('#paginate').replaceWith('<%= j paginate(@users) %>');
+$('#paginate').html('<%= j paginate(@users) %>');
 
