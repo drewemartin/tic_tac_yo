@@ -41,7 +41,7 @@ $(document).on('ready page:load', function(){
     });
 
     function set_start_game_to_zero(){
-      currentGameRef.child('start_game').set({start_game: 0})
+      currentGameRef.update({start_game: 0})
     }
 
       
@@ -188,7 +188,7 @@ $(document).on('ready page:load', function(){
     function updateWin (win) {
       if (win !==  "unknown")
       {
-        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ win + "'s click here to play again" +"</a>");
+        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ win + "'s " + '<i class="fa fa-hand-o-right"></i>' + " click here to play again" +"</a>");
         $('#game-result').show();
         $('#reset').off('click');
         $('td').off('click');
@@ -202,9 +202,10 @@ $(document).on('ready page:load', function(){
     }
 
     function updateTie (tie) {
+      console.log('this is the update tie callback')
       if (tie !==  "no_tie")
       {
-        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ tie + " click here to play again" +"</a>");
+        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ tie +  '<i class="fa fa-hand-o-right"></i>' +  " click here to play again" +"</a>");
         $('#game-result').show();
         $('#reset').off('click');
         $('td').off('click');
@@ -219,17 +220,53 @@ $(document).on('ready page:load', function(){
 
 
     function tieChecker(playerMove,board){
-      if(board[0] == playerMove &&
-        board[2] == playerMove &&
-        board[4] == playerMove &&
-        board[6] == playerMove &&
-        board[8] == playerMove
+      console.log("tieChecker");
+      if((board[0] === playerMove &&
+        board[1] === playerMove &&
+        board[5] === playerMove &&
+        board[6] === playerMove &&
+        board[7] === playerMove) ||
+        (board[1] === playerMove &&
+        board[3] === playerMove &&
+        board[5] === playerMove &&
+        board[6] === playerMove &&
+        board[8] === playerMove) ||
+        (board[1] === playerMove &&
+        board[2] === playerMove &&
+        board[3] === playerMove &&
+        board[7] === playerMove &&
+        board[8] === playerMove) ||
+        (board[0] === playerMove &&
+        board[2] === playerMove &&
+        board[3] === playerMove &&
+        board[5] === playerMove &&
+        board[7] === playerMove) || 
+        (board[0] === playerMove &&
+        board[2] === playerMove &&
+        board[5] === playerMove &&
+        board[6] === playerMove &&
+        board[7] === playerMove) ||
+        (board[0] === playerMove &&
+        board[1] === playerMove &&
+        board[5] === playerMove &&
+        board[6] === playerMove &&
+        board[8] === playerMove) ||
+        (board[1] === playerMove &&
+        board[2] === playerMove &&
+        board[3] === playerMove &&
+        board[6] === playerMove &&
+        board[8] === playerMove) ||
+        (board[0] === playerMove &&
+        board[2] === playerMove &&
+        board[3] === playerMove &&
+        board[7] === playerMove &&
+        board[8] === playerMove)
       )
         {
-          return "we have a tie!"
+          return "Tie!";
         }
         else{
-          return "no_tie"
+          return "no_tie";
         };
     };
 
