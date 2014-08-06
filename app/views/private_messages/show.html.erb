@@ -12,15 +12,19 @@
       </thead>
       <tbody>    	
         <tr>
-          <td><%= @private_message.message %></td>
-        </tr>
-        <tr>
-           <td>
-            <%= link_to "Back", user_private_messages_path(current_user), class: "btn btn-primary" %>
-            <%= link_to "Reply", new_user_private_message_path(@private_message.sender, :source =>private_message_path(@private_message)), class: "btn btn-inverse" %>
+          
+          <td>
+
+              <%= link_to "Reply", new_user_private_message_path(@private_message.sender, :source =>private_message_path(@private_message)), class: "btn btn-inverse" %>
             <%= link_to "Delete", private_message_path(@private_message), method: :delete, class: "btn btn-danger delete-btn" %>
+             <%= link_to "Back", user_private_messages_path(current_user), class: "btn btn-primary" %>
             </td>
         </tr>
+           <tr>
+           <td><%= @private_message.message %></td>
+       
+
+            </tr>
 
       </tbody>
     </table>
