@@ -8,32 +8,32 @@ Heroku host: http://tic-tac-yo.herokuapp.com
 
 ###Functionality Highlights
 
-~> Finding matched users by  proximity (powered by geocoder gem)
+* Finding matched users by  proximity (powered by geocoder gem)
 
-~> User upload photos (powered by paperclip gem)
+* User upload photos (powered by paperclip gem)
 
-~> User authentication, reset password and show online status (powered by socery gem)
+* User authentication, reset password and show online status (powered by socery gem)
 
-~> Add users to favorite or blocked list and send users private messages using ajax and partial rendering
+* Add users to favorite or blocked list and send users private messages using ajax and partial rendering
 
-~> Real-time invitation, tic-tac-toc game play and chating. (powered by firebase and jQuery)
+* Real-time invitation, tic-tac-toc game play and chating. (powered by firebase and jQuery)
 
-~> Responsive design (powered by Bourbon)
+* Responsive design (powered by Bourbon)
 
 ###Specs
 
-~> Made with Ruby on Rails(infrastructure) and Firebase(real time game play, chatting and invitation)
+* Made with Ruby on Rails(infrastructure) and Firebase(real time game play, chatting and invitation)
 
-~> TDD development for data model, crafted using Rspec, FactoryGirl and Faker
+* TDD development for data model, crafted using Rspec, FactoryGirl and Faker
 
-~> UX is complemented with Bourbon, Foundation and Flat UI kitpro 
+* UX is complemented with Bourbon, Foundation and Flat UI kitpro 
 
-~> Icons are provided by Font Awesome
+* Icons are provided by Font Awesome
 
 ###Collaborators
 
-~> Drew Martin (Drew.E.Martin@gmail.com)
+* Drew Martin (Drew.E.Martin@gmail.com)
 
-~> Weiyi Zheng (zhengweiyi@gmail.com)
+* Weiyi Zheng (zhengweiyi@gmail.com)
 
-~> Sandy Ludosky (sandyludosky@gmail.com)
+* Sandy Ludosky (sandyludosky@gmail.com)
