@@ -209,7 +209,7 @@ h2 {
 .main {
   @include outer-container;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 3%;
 
     #profile { 
       @include span-columns(12); 
@@ -218,10 +218,22 @@ h2 {
         }
     }
     #bio  { 
-      @include span-columns(4); 
+      @include span-columns(5); 
       @include shift(1);
         ul {
           list-style-type: none;
+        }
+
+        #mystats {
+         @include outer-container; 
+
+          .fav_user {
+             @include span-columns(6); 
+          }
+
+          .block_user {
+             @include span-columns(6); 
+          }
         }
       }
     #edit_form {
@@ -297,10 +309,30 @@ h2 {
     }
 }
 
+.card .card-image {
+  padding: 3%;
+}
+
 .card-stats .buttons div#invitation-div {
   float:none;
 }
 
+.table-minimal {
+    p {
+      line-height: 1;
+    }
+
+    a {
+      color: $cloud;     
+    }
+    td {
+      padding: 0;
+    }
+
+    tr:hover > td, tr:hover > th {
+      background-color: none;
+    }
+}
 
 
 

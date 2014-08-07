@@ -660,7 +660,7 @@ top: -1px;
 
   .card-image {
     overflow: hidden;
-    max-height: 150px;
+    max-height: 350px;
 
     img {
       width: 100%;
@@ -779,9 +779,9 @@ top: -1px;
   border-spacing: 0;
 
   tbody {
-    tr:hover > td, tr:hover > th {
-      background-color: lighten($base-body-color, 35);
-    }
+    // tr:hover > td, tr:hover > th {
+    //   background-color: lighten($base-body-color, 35);
+    // }
     tr:first-child td {
       border-top: 2px solid $table-border-color;
     }
