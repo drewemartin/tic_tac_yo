@@ -188,7 +188,7 @@ $(document).on('ready page:load', function(){
     function updateWin (win) {
       if (win !==  "unknown")
       {
-        $("#game-result").html("<div><span>"+ tie + " click here to play again" +"</span></div>");
+        $("#game-result").html("<a href='#'>"+ win + "'s click here to play again" +"</a>");
         $('#game-result').show();
         $('#reset').off('click');
         $('td').off('click');
@@ -205,7 +205,7 @@ $(document).on('ready page:load', function(){
       console.log('this is the update tie callback')
       if (tie !==  "no_tie")
       {
-        $("#game-result").html("<div><span>"+ tie + " click here to play again" +"</span></div>");
+        $("#game-result").html("<a href='#'>"+ win + "'s click here to play again" +"</a>");
         $('#game-result').show();
         $('#reset').off('click');
         $('td').off('click');

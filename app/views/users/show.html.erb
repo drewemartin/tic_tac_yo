@@ -1,7 +1,7 @@
 <div class="main">
 
 <div class="padding20"></div>
-<div class="padding20"></div>
+
 
 
 <div id="profile">
@@ -13,7 +13,7 @@
 <div class="cards">
   <div class="card">
     <div class="card-image">
-      <img src="https://placeimg.com/640/480/people">
+      <%= image_tag @user.avatar.url(:medium) %>
     </div>
     <div class="card-header">
       <em>Username</em>
@@ -25,9 +25,8 @@
         <li>First Name: <%= @user.first_name %></li>
         <li>Last Name: <%= @user.last_name %></li>
         <li>Gender: <%= @user.gender %></li>
-        <li>Original Size: <%= image_tag @user.avatar.url %></li>
-        <li>Medium Size: <%= image_tag @user.avatar.url(:medium) %></li>
-        <li>Thumb Size: <%= image_tag @user.avatar.url(:thumb) %></li>
+
+
 
         <li>Online Status: 
 
@@ -42,62 +41,78 @@
 
     <div class="card-stats">
        
-    <div class="buttons">
-     <% if @user.id != current_user.id %>
-        <div id="send-private-message-div">
-          <%= render "send_private_message" %>
-        </div>
-        <div id="invitation-div">
-          <%= render partial: "invitation_form" %>
-        </div>
-        <div class="clearfix"></div>
-        <div id="favorite-div" class="btn">
-          <% if @favorite.nil? %> 
-            <%= render partial: "favorites/favorite" %>
-          <% else %>
-            <%= render partial: "favorites/destroy_favorite" %>
-          <% end %>
-        </div>
-        <div id="block-div" class="btn">
-          <% if !current_user.has_blocked(@user) %>
-            <%= render partial: "blocks/block" %>
-          <% else %>
-            <%= render partial: "blocks/destroy_block" %>
-          <% end %>
-        </div>
-     <% else %>
-    </div><!-- buttons -->
-  </div><!-- card-stats -->
+      <div class="buttons">
+       <% if @user.id != current_user.id %>
+          <div id="send-private-message-div">
+            <%= render "send_private_message" %>
+          </div>
+          <div id="invitation-div">
+            <%= render partial: "invitation_form" %>
+          </div>
+          <div class="clearfix"></div>
+          <div id="favorite-div" class="btn">
+            <% if @favorite.nil? %> 
+              <%= render partial: "favorites/favorite" %>
+            <% else %>
+              <%= render partial: "favorites/destroy_favorite" %>
+            <% end %>
+          </div>
+          <div id="block-div" class="btn">
+            <% if !current_user.has_blocked(@user) %>
+              <%= render partial: "blocks/block" %>
+            <% else %>
+              <%= render partial: "blocks/destroy_block" %>
+            <% end %>
+          </div>
+       <% else %>
+      </div><!-- buttons -->
+    </div><!-- card-stats -->
+
  </div>
+ <div id="bio">
 
-  <div id="bio">
+  <div id="description">
+     <p><%= @user.biography %></p>
+  </div>
 
-	<div id="description">
-	 <p><%= @user.biography %></p>
 
-	</div>
 
 
   <div id="mystats"><br>
   <% if @user.id == current_user.id %>
-    <table class="table-minimal text-center">
+    <table class="table-minimal text-center fav_user">
       <thead>
-        <tr>
-        <ul>
-         
+        <tr>  
           <% end %>
-          </ul>
-          <th><i class='fi-heart'></i>Favorite Users</th>
-          <th><i class='fi-puzzle'></i>Blocked Users</th>
+  
+          <th width='300'><i class='fi-heart'></i> Favorite Users</th>
+        
         </tr>
       </thead>
       <tbody>
         <tr>
-           <td id = "favorite-list"> 
+           <td id = "block-list">
             <% @favorite_users.each do |user| %>
-             <p><%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></p>
-            <% end %>
-           </td>
+              <p><%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></p>
+             <% end %>
+           </td>  
+        </tr>
+      </tbody>
+    </table>
+
+
+  <% if @user.id == current_user.id %>
+    <table class="table-minimal text-center block_user">
+      <thead>
+        <tr>  
+          <% end %>
+
+          <th width='300'><i class='fi-puzzle'></i> Blocked Users</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          
            <td id = "block-list">
             <% @blocked_users.each do |user| %>
               <p><%= link_to "#{user.first_name} #{user.last_name}" , user_path(user) %></p>
@@ -107,12 +122,23 @@
       </tbody>
     </table>
   <% end %>
-  </div><!-- mystats -->
- 
- </div><!-- profile -->
-</div><!-- bio-->
 
-</div><!-- main -->
+
+
+  </div><!-- mystats -->
+
+ </div><!-- bio-->
+</div>
+
+
+  
+  </div><!-- profile -->
+
+  <div class="padding20 clearfix"></div>
+</div>
+</div>
+
+
 
 
 
