@@ -188,7 +188,7 @@ $(document).on('ready page:load', function(){
     function updateWin (win) {
       if (win !==  "unknown")
       {
-        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ win + "'s click here to play again" +"</a>");
+        $("#game-result").html("<div><span>"+ tie + " click here to play again" +"</span></div>");
         $('#game-result').show();
         $('#reset').off('click');
         $('td').off('click');
@@ -204,7 +204,7 @@ $(document).on('ready page:load', function(){
     function updateTie (tie) {
       if (tie !==  "no_tie")
       {
-        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ tie + " click here to play again" +"</a>");
+        $("#game-result").html("<div><span>"+ tie + " click here to play again" +"</span></div>");
         $('#game-result').show();
         $('#reset').off('click');
         $('td').off('click');
