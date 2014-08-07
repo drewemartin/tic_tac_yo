@@ -1,28 +1,31 @@
-== README
+Welcome to Tic-Tac-Yo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a full functioning dating site that differentiates 
+itself through incorporating real time multiplayer 
+gameplay as an 'icebreaker' feature.
 
-Things you may want to cover:
+Collaborators:
 
-* Ruby version
+~> Drew Martin (Drew.E.Martin@gmail.com)
 
-* System dependencies
+~> Weiyi Zheng (zhengweiyi@gmail.com)
 
-* Configuration
+~> Sandy Ludosky (sandyludosky@gmail.com)
 
-* Database creation
+Specs:
 
-* Database initialization
+~> Made with Ruby 2.1.0
 
-* How to run the test suite
+~> Real time events are scripted in Javascript
 
-* Services (job queues, cache servers, search engines, etc.)
+~> Test suite crafted using Rspec, FactoryGirl and Faker
 
-* Deployment instructions
+~> Hosted on Heroku (http://tic-tac-yo.herokuapp.com)
 
-* ...
+~> Real-time gameplay, invitations and chat are forged in Firebase
+
+~> UX is complemented with Bourbon, Foundation and Flat UI kitpro 
+
+~> Icons are provided by Font Awesome
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
