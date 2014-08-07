@@ -205,7 +205,7 @@ $(document).on('ready page:load', function(){
       console.log('this is the update tie callback')
       if (tie !==  "no_tie")
       {
-        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ tie +  '<i class="fa fa-hand-o-right"></i>' +  " click here to play again" +"</a>");
+        $("#game-result").html("<a  href='#' class='btn btn-danger btn-lg'>"+ tie + '&nbsp;'+ '<i class="fa fa-hand-o-right"></i>' +  " click here to play again" +"</a>");
         $('#game-result').show();
         $('#reset').off('click');
         $('td').off('click');
