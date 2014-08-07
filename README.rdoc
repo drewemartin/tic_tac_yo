@@ -7,6 +7,7 @@ gameplay as an 'icebreaker' feature.
 Heroku host: http://tic-tac-yo.herokuapp.com
 
 Functionality Highlights:
+
 ~> Finding matched users by  proximity (powered by geocoder gem)
 
 ~> User upload photos (powered by paperclip gem)
