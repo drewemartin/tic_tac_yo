@@ -5,11 +5,13 @@ class UsersController < ApplicationController
 
     if params[:search]
       age_range = parse_age_range(params[:age])
-      @users = User.by_gender(params[:gender]).by_age_range(age_range[0],age_range[1]).by_city(params[:city]).everyone_but_current(current_user).page(params[:page])
-      puts User.by_gender(params[:gender]).by_age_range(age_range[0],age_range[1]).by_city(params[:city]).length
+      @users = User.by_gender(params[:gender]).by_age_range(age_range[0],age_range[1]).by_city(params[:city]).everyone_but_current(current_user).order('users.created_at DESC').page(params[:page])
+      # puts "run search"
+      # puts User.by_gender(params[:gender]).by_age_range(age_range[0],age_range[1]).by_city(params[:city]).length
     else
-      @users = User.order('users.created_at DESC').page(params[:page]).everyone_but_current(current_user) 
-      puts User.all.length
+      @users = User.order('users.created_at DESC').everyone_but_current(current_user).page(params[:page])
+      # puts "run all"
+      # puts User.all.length
     end
 
       @user10 = @users.everyone_but_current(current_user).limit(10)
