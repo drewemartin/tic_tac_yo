@@ -8,10 +8,15 @@ Heroku host: http://tic-tac-yo.herokuapp.com
 
 Functionality Highlights:
 ~> Finding matched users by  proximity (powered by geocoder gem)
+
 ~> User upload photos (powered by paperclip gem)
+
 ~> User authentication, reset password and show online status (powered by socery gem)
+
 ~> Add users to favorite or blocked list and send users private messages using ajax and partial rendering
+
 ~> Real-time invitation, tic-tac-toc game play and chating. (powered by firebase and jQuery)
+
 ~> Responsive design (powered by Bourbon)
 
 Specs:
