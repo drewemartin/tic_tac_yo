@@ -12,7 +12,7 @@ Heroku host: http://tic-tac-yo.herokuapp.com
 
 * User upload photos (powered by paperclip gem)
 
-* User authentication, reset password and show online status (powered by socery gem)
+* User authentication, reset password and show online status (powered by sorcery gem)
 
 * Add users to favorite or blocked list and send users private messages using ajax and partial rendering
 
